@@ -1,0 +1,308 @@
+@media (min-width: 768px) {
+  a,
+  a:hover,
+  a:focus,
+  a:active {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  a:link {
+    text-decoration: none !important;
+  }
+
+  /* nav */
+  .nav1 {
+    background-color: white;
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+    position: sticky;
+    top: 0px;
+  }
+
+  .nav2 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .nav3 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .navimg {
+    object-fit: contain;
+    background: transparent;
+    margin-left: 19px;
+  }
+
+  .nav4 {
+    display: flex;
+    gap: 32px;
+  }
+
+  .nav5 {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    margin-right: 8px;
+  }
+
+  /* Menu */
+
+  .navMenu1 {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+  }
+
+  .navMenu2 {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    color: black;
+    font-size: medium;
+    list-style-type: none;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .navMenu3 {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+  }
+
+  .navMenu4 {
+    background-color: white;
+    position: absolute;
+    top: 20px;
+    left: 0%;
+    min-width: 250px;
+    padding-left: 4px;
+    padding-right: 4px;
+    color: black;
+
+    --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),
+      0 4px 6px -4px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+      var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .navMenu5 {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .navMenu5:hover {
+    --tw-bg-opacity: 1;
+    background-color: whitesmoke;
+  }
+
+  .navMenu6 {
+    cursor: pointer;
+  }
+
+  .searchbar2 {
+    display: none;
+  }
+
+  /* SlidingBanner */
+  .sb1 {
+    padding: 25px 40px;
+    font-family: "Courier New", Courier, monospace;
+    position: absolute;
+    left: 40px;
+    top: 32px;
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  .sb2 {
+    padding: 25px 40px;
+    font-family: "Courier New", Courier, monospace;
+    position: absolute;
+    left: 40px;
+    top: 80px;
+    font-size: 20px;
+    color: white;
+  }
+
+  .sb3 {
+    padding: 25px 40px;
+    font-family: "Courier New", Courier, monospace;
+    position: absolute;
+    left: 58px;
+    bottom: 220px;
+    top: 300px;
+    color: black;
+    background-color: white;
+    border-radius: 12px;
+    font-size: 20px;
+  }
+
+  .sb3:hover {
+    background-color: whitesmoke;
+  }
+
+  .sbimg {
+    object-fit: cover;
+    grid-auto-rows: auto;
+  }
+
+  /* Navigation Footer Only for mobile */
+
+  .nf1 {
+    display: none;
+  }
+
+  /* Airport Services */
+  .as1 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .as2 {
+    margin-left: 40px;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+    padding: 16px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .as3 {
+    display: flex;
+    margin-left: 40px;
+    justify-content: space-between;
+    padding: 24px;
+  }
+
+  .as4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .asimg1 {
+    height: 192px;
+    width: 192px;
+    border-radius: 9999px;
+    border-color: black;
+  }
+
+  .as5 {
+    margin-top: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .as6 {
+    display: flex;
+    margin-left: 40px;
+    justify-content: space-between;
+    padding: 24px;
+  }
+
+  .as7 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .asimg2 {
+    height: 192px;
+    width: 192px;
+    border-radius: 9999px;
+    border-color: black;
+  }
+
+  .as8 {
+    margin-top: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  /* Banner Only Mobile */
+  .b1 {
+    display: none;
+  }
+
+  /* Airports card */
+  .ac1 {
+    width: 300px;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px -5px;
+    transition: 0.5s;
+    animation: ease-in-out;
+    background-color: rgb(77, 13, 136);
+    border-radius: 20px;
+  }
+
+  .ac1:hover{
+      transform: scale(1.1);
+      box-shadow: 0px 0px 15px 0px;
+  }
+
+  .ac2{
+    object-fit: contain;
+  }
+  .ac2 img{
+    overflow: hidden;
+    height: 300px;
+  }
+
+  .ac3 {
+    margin: 1rem;
+    margin-top: 0.5rem;
+    color: white;
+  }
+
+  .ac3 h3,p{
+    margin: 0;
+    padding: 0;
+  }
+
+  .ac4{
+    margin-bottom: 0.5rem;
+  }
+
+  .ac6{
+    display: flex;
+    margin-left: 40px;
+    padding: 24px;
+  }
+
+  .ac7{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ac8{
+    margin-left: 40px;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+    padding: 16px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  /* Airports card for mobile */
+  .acm1{
+    display: none;
+  }
+  
+}
