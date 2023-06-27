@@ -32,7 +32,7 @@ const Airportscardmobile = () => {
       image:
         "https://www.jaipurstuff.com/wp-content/uploads/2023/01/Jaipur-International-Airport.jpg",
       title: "Jaipur",
-      subTitle: "Jaipur International Airport",
+      subTitle: "Chhatrapati Shivaji Maharaj International Airport",
     },
 
     {
@@ -56,7 +56,7 @@ const Airportscardmobile = () => {
       image:
         "https://th-i.thgim.com/public/incoming/1e8kp5/article66044674.ece/alternates/FREE_1200/10505_20_9_2022_12_58_23_1_IXE_WINTERSCHEDULE_SEP20.JPG",
       title: "Mangaluru",
-      subTitle: "Mangaluru International Airport",
+      subTitle: "Sardar Vallabhbhai Patel International Airport",
     },
   ];
 
@@ -65,29 +65,22 @@ const Airportscardmobile = () => {
       <div className="acm2">Our Airports</div>
 
       <div className="acm3">
-        {
-          cards.map((card,key)=>(
-            <div className="acm4" key={card.id}>
+        {cards.map((card, key) => (
+          <div className="acm4" key={card.id}>
             <div className="acm5">
-              <img
-                src={card.image}
-                alt="Image"
-              />
+              <img src={card.image} alt="Image" />
             </div>
             <div className="acm6">
               <div className="acm7">
                 <h3>{card.title}</h3>
               </div>
-  
+
               <div className="acm8">
                 <p>{card.subTitle}</p>
               </div>
             </div>
           </div>
-          ))
-        }
-        
-
+        ))}
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
-    items: 5,
+    items: 7,
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
@@ -15,7 +15,7 @@ const responsive = {
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 2,
+    items: 4,
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
@@ -34,7 +34,7 @@ const cards = [
   {
     id: 2,
     image:
-      "https://previews.123rf.com/images/rudall30/rudall301205/rudall30120500048/13792504-cartoon-illustration-of-an-airport.jpg",
+      "https://www.constructionworld.in/assets/uploads/32b8895bb58f7db5a06692298e2eb9af.jpg",
     title: "Ahmedabad",
     subTitle: "Sardar Vallabhbhai Patel International Airport",
   },
@@ -42,7 +42,7 @@ const cards = [
   {
     id: 3,
     image:
-      "https://cdn4.vectorstock.com/i/1000x1000/74/78/cartoon-airport-late-delay-vector-16307478.jpg",
+      "https://images.hindustantimes.com/img/2022/02/11/550x309/aed201ae-8b3c-11ec-8ba1-508084a9585c_1644606222837.jpg",
     title: "Guwahati",
     subTitle: "Lokpriya Gopinath Bardoloi International Airport",
   },
@@ -52,7 +52,7 @@ const cards = [
     image:
       "https://www.jaipurstuff.com/wp-content/uploads/2023/01/Jaipur-International-Airport.jpg",
     title: "Jaipur",
-    subTitle: "Jaipur International Airport",
+    subTitle: "Savaimansinh International Airport",
   },
 
   {
@@ -74,7 +74,7 @@ const cards = [
   {
     id: 7,
     image:
-      "https://th-i.thgim.com/public/incoming/1e8kp5/article66044674.ece/alternates/FREE_1200/10505_20_9_2022_12_58_23_1_IXE_WINTERSCHEDULE_SEP20.JPG",
+      "https://t3.ftcdn.net/jpg/02/49/80/14/360_F_249801441_nL5kzCvGa7x0dIalEv9Vx4OYbDHTs5jV.jpg",
     title: "Mangaluru",
     subTitle: "Mangaluru International Airport",
   },

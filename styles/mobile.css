@@ -1,4 +1,4 @@
-@media (max-width: 767px) {
+@media (max-width: 992px) {
 
   a, a:hover, a:focus, a:active {
     text-decoration: none;
@@ -55,22 +55,29 @@
     margin-top: 20px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    position: sticky;
   }
 
   .searchbar2{
-    position: relative;
+    /* position: relative; */
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+    margin: auto;
   }
 
   .searchbar3{
-    width: 320px;
+    width: 21.875rem;
+    height: 2.5rem;
     padding: 8px 16px;
     border-radius: 9999px;
     --tw-border-opacity: 1;
     border-color: rgb(209 213 219 / var(--tw-border-opacity));
     --tw-bg-opacity: 1;
     background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+    position: sticky;
     
   }
 
@@ -115,7 +122,8 @@
     padding: 10px;
     margin: 10px;
     overflow: scroll;
-    scroll-behavior: smooth;    
+    scroll-behavior: smooth;
+    justify-content: space-between;    
   }
 
   .as4{
@@ -187,7 +195,7 @@
     font-weight: 600;
     padding: 10px;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    margin-left: 1px;
+    margin: auto;
   }
 
   .acm3{
@@ -198,7 +206,7 @@
     margin: 10px;
     overflow: scroll;
     scroll-behavior: smooth;
-    margin-left: 1700px;
+    margin: auto;
   }
 
   
@@ -218,7 +226,7 @@
 
   .acm5 img{
     overflow: hidden;
-    height: 275px;
+    height: 230px;
   }
 
   .acm6{

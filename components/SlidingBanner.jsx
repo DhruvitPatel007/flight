@@ -59,11 +59,11 @@ const SlidingBanner = () => {
               {slide.subtitle}
             </div>
 
-            <Link href="/shop">
+            {/* <Link href="/shop">
               <div className="sb3 text_transform_uppercase cursor_pointer">
                 Book now
               </div>
-            </Link>
+            </Link> */}
             <img src={slide.imageUrl} className="sbimg" />
           </div>
         ))}
