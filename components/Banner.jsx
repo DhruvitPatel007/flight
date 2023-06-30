@@ -29,9 +29,9 @@ const Banner = () => {
   ];
 
   return(
-    <div className="b1">
+    <div className="b1 scrolling">
         {banners.map((banner, index) => (
-          <div key={banner.id} className="b2">
+          <div key={banner.id} className="b2 ">
             <img src={banner.imageUrl} className="bimg1" />
           </div>
         ))}

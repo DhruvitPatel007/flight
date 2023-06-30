@@ -61,7 +61,7 @@ const Airportscardmobile = () => {
   ];
 
   return (
-    <div className="acm1">
+    <div className="acm1 scrolling">
       <div className="acm2">Our Airports</div>
 
       <div className="acm3">

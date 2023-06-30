@@ -1,22 +1,24 @@
 @media (max-width: 992px) {
-
-  a, a:hover, a:focus, a:active {
+  a,
+  a:hover,
+  a:focus,
+  a:active {
     text-decoration: none;
     color: inherit;
-}
+  }
 
-  a:link{
-    text-decoration: none!important;
+  a:link {
+    text-decoration: none !important;
   }
 
   .nav1 {
     background-color: white;
     width: 100%;
-    height: 60px;
+    height: 3.75rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    top: 3px;
+    top: 0.188rem;
   }
 
   .nav2 {
@@ -28,30 +30,29 @@
   .nav3 {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem;
   }
 
   .navimg {
     object-fit: contain;
     background: transparent;
-    margin-left: 2px;
+    margin-left: 0.125rem;
   }
 
-  .nav5{
+  .nav5 {
     display: flex;
     align-items: center;
     text-align: center;
     position: relative;
-    margin-right: 2px;
-    margin-top: 12px;
+    margin-right: 0.90rem;
+    margin-top: 0.75rem;
   }
 
-
-  .navMenu1{
+  .navMenu1 {
     display: none;
   }
 
-  .searchbar1{
+  .searchbar1 {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -59,47 +60,43 @@
     align-items: center;
   }
 
-  .searchbar2{
+  .searchbar2 {
     /* position: relative; */
     display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
     margin: auto;
   }
 
-  .searchbar3{
-    width: 21.875rem;
+  .searchbar3 {
+    width: 75vw;
     height: 2.5rem;
     padding: 8px 16px;
     border-radius: 9999px;
-    --tw-border-opacity: 1;
-    border-color: rgb(209 213 219 / var(--tw-border-opacity));
-    --tw-bg-opacity: 1;
-    background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+    border-color: rgb(12, 165, 165);
     position: sticky;
-    
   }
 
-  .sbm1{
+  .sbm1 {
     display: none;
   }
 
-   /* Navigation Footer Only for mobile */
+  /* Navigation Footer Only for mobile */
 
-  .nf1{
-    width:100%;
+  .nf1 {
+    width: 100%;
     position: fixed;
     display: flex;
-    gap: 8px;
-    bottom: 0px;
+    gap: 0.5rem;
+    bottom: 0rem;
     background-color: rgb(31 41 55);
     color: white;
-    padding: 16px;
-    justify-content:space-between;
+    padding: 1rem;
+    justify-content: space-between;
   }
 
-  .nf2{
+  .nf2 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -107,111 +104,112 @@
 
   /* Airport Services */
 
-  .as1{
+  .as1 {
     display: flex;
     flex-direction: column;
   }
 
-  .as2{
+  .as2 {
     display: none;
-    
   }
 
-  .as3{
-    display: flex;
-    padding: 10px;
-    margin: 10px;
+  .as3 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 0.625rem;
+    margin: 0.625rem;
     overflow: scroll;
     scroll-behavior: smooth;
-    justify-content: space-between;    
+    justify-content: space-between;
+    grid-gap: 1rem;
   }
 
-  .as4{
+  .scrolling::-webkit-scrollbar {
+    display: none;
+  }
+
+  .as4 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
+    padding: 0.625rem;
   }
 
-  
-
-  .asimg1{
-    height: 80px;
-    width: 80px;
-    border-radius: 9999px;
+  .asimg1 {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 624.938rem;
     border-color: black;
   }
 
-  .as5{
-    margin-top: 12px;
+  .as5 {
+    margin-top: 0.75rem;
     font-family: Arial, Helvetica, sans-serif;
   }
 
   /* Banner Only Mobile */
 
-  .b1{
+  .b1 {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 10px;
-    margin: 10px;
+    padding: 0.625rem;
+    margin: 0.625rem;
     overflow: scroll;
     scroll-behavior: smooth;
-    margin-bottom: 40px;
-    margin-left: 10px;
+    margin-bottom: 2.5rem;
+    margin-left: 0.625rem;
   }
 
-  .b2{
-    margin: 10px;
-    padding: 10px;
+  .b2 {
+    margin: 0.225rem;
+    padding: 0.425rem;
   }
 
-  .bimg1{
-    height: 150px;
-    width: 250px;
-    border-radius: 10px;
+  .bimg1 {
+    height: 9.375rem;
+    width: 15.625rem;
+    border-radius: 0.625rem;
   }
 
   /* Airports Card */
 
-  .ac7{
+  .ac7 {
     display: none;
   }
 
-  .acm1{
+  .acm1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
-    margin: 10px;
+    padding: 0.625rem;
+    margin: 0.625rem;
     overflow: scroll;
     scroll-behavior: smooth;
-    margin-bottom: 100px;
-    margin-left: 10px;
+    margin-bottom: 6.25rem;
+    margin-left: 0.625rem;
   }
 
-  .acm2{
-    font-size: 20px;
+  .acm2 {
+    font-size: 1.25rem;
     font-weight: 600;
-    padding: 10px;
+    padding: 0.625rem;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    margin: auto;
+    margin-left: 0rem;
   }
 
-  .acm3{
+  .acm3 {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 10px;
-    margin: 10px;
+    padding: 0.625rem;
+    margin: 0.625rem;
     overflow: scroll;
     scroll-behavior: smooth;
     margin: auto;
   }
 
-  
-
-  .acm4{
+  .acm4 {
     margin-right: 12px;
     width: 275px;
     overflow: hidden;
@@ -220,29 +218,28 @@
     border-radius: 20px;
   }
 
-  .acm5{
+  .acm5 {
     object-fit: contain;
   }
 
-  .acm5 img{
+  .acm5 img {
     overflow: hidden;
     height: 230px;
   }
 
-  .acm6{
+  .acm6 {
     margin: 1rem;
     margin-top: 0.5rem;
     color: white;
   }
 
-  .acm6 h3,p{
+  .acm6 h3,
+  p {
     margin: 0;
     padding: 0;
   }
 
-  .acm7{
+  .acm7 {
     margin-bottom: 0.5rem;
   }
-
-  
 }

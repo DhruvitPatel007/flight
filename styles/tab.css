@@ -26,24 +26,23 @@
   .nav2 {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 97vw;
   }
 
   .nav3 {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 0.75rem;
   }
 
   .navimg {
     object-fit: contain;
     background: transparent;
-    margin-left: 19px;
   }
 
   .nav4 {
     display: flex;
-    gap: 32px;
+    gap: 2rem;
   }
 
   .nav5 {
@@ -52,7 +51,6 @@
     text-align: center;
     cursor: pointer;
     position: relative;
-    margin-right: 8px;
   }
 
   /* Menu */
@@ -60,7 +58,7 @@
   .navMenu1 {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 2rem;
     font-family: Arial, Helvetica, sans-serif;
     color: black;
   }
@@ -68,7 +66,7 @@
   .navMenu2 {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 2rem;
     color: black;
     font-size: medium;
     list-style-type: none;
@@ -79,18 +77,18 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem;
     position: relative;
   }
 
   .navMenu4 {
     background-color: white;
     position: absolute;
-    top: 20px;
+    top: 1.25rem;
     left: 0%;
-    min-width: 250px;
-    padding-left: 4px;
-    padding-right: 4px;
+    min-width: 15.625rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
     color: black;
 
     --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
@@ -102,11 +100,11 @@
   }
 
   .navMenu5 {
-    height: 40px;
+    height: 2.5rem;
     display: flex;
     align-items: center;
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
   .navMenu5:hover {
     --tw-bg-opacity: 1;
@@ -134,26 +132,26 @@
   }
 
   .sb2 {
-    padding: 25px 40px;
+    padding: 1.563rem 2.5rem;
     font-family: "Courier New", Courier, monospace;
     position: absolute;
-    left: 40px;
-    top: 80px;
-    font-size: 20px;
+    left: 2.5rem;
+    top: 5rem;
+    font-size: 1.25rem;
     color: white;
   }
 
   .sb3 {
-    padding: 25px 40px;
+    padding: 1.563rem 2.5rem;
     font-family: "Courier New", Courier, monospace;
     position: absolute;
-    left: 58px;
-    bottom: 220px;
-    top: 300px;
+    left: 3.625rem;
+    bottom: 13.75rem;
+    top: 18.75rem;
     color: black;
     background-color: white;
-    border-radius: 12px;
-    font-size: 20px;
+    border-radius: 0.75rem;
+    font-size: 1.25rem;
   }
 
   .sb3:hover {
@@ -178,63 +176,66 @@
   }
 
   .as2 {
-    margin-left: 40px;
-    font-size: 20px;
-    line-height: 28px;
+    margin-left: 2.5rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
     font-weight: 600;
-    padding: 16px;
+    padding: 1rem;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
 
   .as3 {
-    display: flex;
-    margin-left: 40px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin-left: 2.5rem;
     justify-content: space-between;
-    padding: 24px;
+    padding: 1.5rem;
+    grid-gap: 1.25rem;
   }
 
   .as4 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
   }
 
   .asimg1 {
-    height: 150px;
-    width: 150px;
-    border-radius: 9999px;
+    height: 9.375rem;
+    width: 9.375rem;
+    border-radius: 624.938rem;
     border-color: black;
   }
 
   .as5 {
-    margin-top: 12px;
+    margin-top: 0.75rem;
     font-family: Arial, Helvetica, sans-serif;
   }
 
-  .as6 {
+  /* .as6 {
     display: flex;
-    margin-left: 40px;
+    margin-left: 2.5rem;
     justify-content: space-between;
-    padding: 24px;
-  }
+    padding: 1.5rem;
+  } */
 
-  .as7 {
+  /* .as7 {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
+  } */
 
-  .asimg2 {
-    height: 192px;
-    width: 192px;
+  /* .asimg2 {
+    height: 9.375rem;
+    width: 9.375rem;
     border-radius: 9999px;
     border-color: black;
-  }
+  } */
 
-  .as8 {
+  /* .as8 {
     margin-top: 12px;
     font-family: Arial, Helvetica, sans-serif;
-  }
+  } */
 
   /* Banner Only Mobile */
   .b1 {
@@ -243,20 +244,20 @@
 
   /* Airports card */
   .ac1 {
-    width: 400px;
-    height: 350px;
+    width: 25rem;
+    height: 21.875rem;
     overflow: hidden;
     box-shadow: 0px 0px 15px -5px;
     transition: 0.5s;
     animation: ease-in-out;
     background-color: rgb(77, 13, 136);
-    border-radius: 20px;
+    border-radius: 1.25rem;
   }
 
-  .ac1:hover{
+  /* .ac1:hover{
       transform: scale(1.1);
       box-shadow: 0px 0px 15px 0px;
-  }
+  } */
 
   .ac2{
     object-fit: contain;
@@ -267,7 +268,7 @@
   }
 
   .ac3 {
-    margin: 1rem;
+    margin: 2rem;
     margin-top: 0.5rem;
     color: white;
   }
@@ -284,7 +285,7 @@
   .ac6{
     display: flex;
     margin-left: auto;
-    padding: 25px 5px;
+    padding: 25px 15px;
   }
 
   .ac7{
@@ -294,11 +295,12 @@
   }
 
   .ac8{
-    font-size: 20px;
-    line-height: 28px;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
     font-weight: 600;
-    padding: 16px;
+    padding: 1rem;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 1.25rem;
   }
 
   /* Airports card for mobile */
