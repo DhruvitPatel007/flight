@@ -32,8 +32,8 @@ const data = [
     { id: 4, name: "Lost and found" },
     { id: 5, name: "Wi-Fi" },
     { id: 6, name: "View All" },
-
-  ], },
+    
+  ], url:"/services" },
   { id: 4, name: "Travelogues", subMenu:true, subMenuData:[
     { id: 1, name: "Travel"},
     { id: 2, name: "Food"},
@@ -72,7 +72,7 @@ const Menu = ({ showCatMenu, setShowCatMenu }) => {
                   onMouseEnter={() => handleMouseEnter(item.subMenuData)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  {item.name}
+                  <Link href={`${item.url}`}>{item.name}</Link>
                   {showCatMenu && currentSubMenuData === item.subMenuData &&  (
                     <ul className="navMenu4">
                       {currentSubMenuData.map((submenu) => {

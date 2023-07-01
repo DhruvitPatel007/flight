@@ -8,6 +8,7 @@ import Banner from "@/components/Banner";
 import Airportscard from "@/components/Airportscard";
 import Airportscardmobile from "@/components/Airportscardmobile";
 
+
 export default function Home() {
   return (
     <main>
@@ -15,7 +16,6 @@ export default function Home() {
       <SlidingBanner />
       <AirportServices />
       <Banner />
-      <Navfoot />
       <Airportscard />
       <Airportscardmobile />
     </main>

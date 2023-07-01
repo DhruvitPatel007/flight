@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import "../styles/mobile.css";
-import "../styles/tab.css"
+import "../styles/tab.css";
 
 const Searchbar = () => {
   const placeholders = [
@@ -30,7 +30,7 @@ const Searchbar = () => {
 
   return (
     <>
-        <section className="searchbar1">
+      <section className="searchbar1">
         <div className="searchbar2">
           <input
             type="text"
