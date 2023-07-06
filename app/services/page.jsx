@@ -2,7 +2,7 @@
 import React from "react";
 import "./services.css";
 import "@/styles/tab.css";
-import Searcbar1 from "./Searcbar1";
+import Searchbar1 from "@/components/Searchbar1";
 import { useState } from "react";
 
 const Services = () => {
@@ -61,7 +61,7 @@ const Services = () => {
     <div className="container1">
       <div className="container2">
         <div className="s1">Services</div>
-        <Searcbar1 handleSearch={handleSearch}/>
+        <Searchbar1 handleSearch={handleSearch}/>
       </div>
       <div className="s2">Popular Services</div>
 

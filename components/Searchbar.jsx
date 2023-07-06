@@ -44,3 +44,38 @@ const Searchbar = () => {
 };
 
 export default Searchbar;
+ {/* <div className="from">
+        <label className="label2">
+          <span>Departure</span>
+          <input type="text" className="i2" value={departDate.toISOString()} onClick={toggleDepartCalendar}/>
+          {showDepartCalendar && (
+            <div onBlur={toggleDepartCalendar}>
+              <Calendar
+                value={departDate}
+                onChange={handleDepartDateChange}
+                className="calendar"
+                onClickDay={handleCalendarClickDay}
+              />
+            </div>
+          )}
+        </label>
+      </div> */}
+
+      {/* <div className="from-group">
+        <label className="label3">
+          <span className="s1">Departure</span>
+          <div onClick={toggleDepartCalendar} className="i2">
+            {departDate ? departDate.toDateString() : "Select Date"}
+          </div>
+          {showDepartCalendar && (
+            <div onBlur={toggleDepartCalendar}>
+              <Calendar
+                value={departDate}
+                onChange={handleDepartDateChange}
+                className="calendar"
+                onClickDay={handleCalendarClickDay}
+              />
+            </div>
+          )}
+        </label>
+      </div> */}

@@ -197,7 +197,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
   }
 
   .asimg1 {
@@ -259,10 +258,10 @@
       box-shadow: 0px 0px 15px 0px;
   } */
 
-  .ac2{
+  .ac2 {
     object-fit: contain;
   }
-  .ac2 img{
+  .ac2 img {
     overflow: hidden;
     height: 250px;
   }
@@ -273,28 +272,29 @@
     color: white;
   }
 
-  .ac3 h3,p{
+  .ac3 h3,
+  p {
     margin: 0;
     padding: 0;
   }
 
-  .ac4{
+  .ac4 {
     margin-bottom: 0.5rem;
   }
 
-  .ac6{
+  .ac6 {
     display: flex;
     margin-left: auto;
     padding: 25px 15px;
   }
 
-  .ac7{
+  .ac7 {
     margin-left: 40px;
     display: flex;
     flex-direction: column;
   }
 
-  .ac8{
+  .ac8 {
     font-size: 1.25rem;
     line-height: 1.75rem;
     font-weight: 600;
@@ -304,8 +304,83 @@
   }
 
   /* Airports card for mobile */
-  .acm1{
+  .acm1 {
     display: none;
   }
-  
+
+  /* Footer Starts from here */
+  .f1 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-left: 2.5rem;
+    justify-content: space-between;
+    padding: 1.5rem;
+    grid-gap: 1.25rem;
+  }
+
+  .f2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .f2:hover {
+    background-color: rgb(246, 242, 242);
+    border-radius: 1rem;
+  }
+
+  .f3 {
+    padding: 1rem;
+    font-weight: 800;
+  }
+
+  .f4 {
+    padding: 0.2rem;
+    color: grey;
+  }
+
+  .f44 {
+    width: 100%;
+    background-color: rgb(242, 242, 242);
+  }
+  .f5 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-left: 2.5rem;
+    justify-content: space-between;
+    padding: 1.5rem;
+    grid-gap: 1rem;
+  }
+
+  .f6 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .f7 {
+    margin-left: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .f8 {
+    list-style-type: none;
+  }
+
+  .f9 {
+    text-decoration: none;
+  }
+  .f99 {
+    color: white;
+    background-color: black;
+  }
+  .f10 {
+    display: flex;
+    margin-left: 2.5rem;
+    justify-content: space-between;
+    padding: 1.5rem;
+    grid-gap: 1.25rem;
+  }
 }

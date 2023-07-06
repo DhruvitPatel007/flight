@@ -12,7 +12,7 @@ const data = [
     name: "Flights",
     subMenu: true,
     subMenuData: [
-      { id: 1, name: "Book Flight",url:"/flight-booking" },
+      { id: 1, name: "Book Flight",url:"services/flightbook" },
       { id: 2, name: "Flight Status" },
       { id: 3, name: "Group Flight Booking" },
     ],
@@ -26,7 +26,7 @@ const data = [
     ],
   },
   { id: 3, name: "Services",subMenu:true, subMenuData: [
-    { id: 1, name: "Pranam Service" },
+    { id: 1, name: "Pranam Service",url:"/services/pranam" },
     { id: 2, name: "Car Booking" },
     { id: 3, name: "Duty Free" },
     { id: 4, name: "Lost and found" },

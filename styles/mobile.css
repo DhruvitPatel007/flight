@@ -242,4 +242,80 @@
   .acm7 {
     margin-bottom: 0.5rem;
   }
+
+  /* Footer Starts from here */
+  .f1 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-left: 2.5rem;
+    padding: 1.5rem;
+    grid-gap: 1.25rem;
+  }
+
+  .f2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .f2:hover {
+    background-color: rgb(246, 242, 242);
+    border-radius: 1rem;
+  }
+
+  .f3 {
+    padding: 1rem;
+    font-weight: 800;
+  }
+
+  .f4 {
+    padding: 0.2rem;
+    color: grey;
+  }
+
+  .f44 {
+    width: 100%;
+    background-color: rgb(242, 242, 242);
+  }
+  .f5 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-left: 2.5rem;
+    justify-content: space-between;
+    padding: 1.5rem;
+    grid-gap: 1rem;
+  }
+
+  .f6 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .f7 {
+    margin-left: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .f8 {
+    list-style-type: none;
+  }
+
+  .f9 {
+    text-decoration: none;
+  }
+  .f99 {
+    color: white;
+    background-color: black;
+  }
+  .f10 {
+    display: flex;
+    margin-left: 2.5rem;
+    justify-content: space-between;
+    padding: 1.5rem;
+    grid-gap: 1.25rem;
+    margin-bottom: 4rem;
+  }
 }

@@ -1,0 +1,200 @@
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  gap: 15px;
+}
+
+.booking1 {
+  font-size: large;
+  font-weight: 800;
+}
+
+.radio-group {
+  display: flex;
+  margin-top: 1rem;
+  justify-content: space-between;
+}
+
+.label1 {
+  margin: 1rem;
+}
+
+.i1 {
+  width: 25vw;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+.i1:hover {
+  cursor: pointer;
+}
+
+.i2 {
+  width: 21vw;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+.i2:hover {
+  cursor: pointer;
+}
+
+.label3 {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+.Dates {
+  display: flex;
+  flex-direction: column;
+}
+
+.d1 {
+  margin-bottom: 2rem;
+  width: 15rem;
+}
+
+.from{
+  position: relative;
+}
+
+.headerSearchItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.headerSearchText {
+  padding: 1rem;
+  color: black;
+  cursor: pointer;
+  background-color: white;
+  border-color: rgb(128, 10, 10);
+  border-radius: 20px;
+}
+.options {
+  z-index: 2;
+  position: absolute;
+  top: 50px;
+  background-color: white;
+  color: gray;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
+}
+
+.optionItem {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.optionCounter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: black;
+}
+
+.optionCounterButton {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #0071c2;
+  color: #0071c2;
+  cursor: pointer;
+  background-color: white;
+}
+
+.optionCounterButton:disabled {
+  cursor: not-allowed;
+}
+
+.class1 {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.navMenu4 {
+  background-color: white;
+  position: absolute;
+  top: 1.3rem;
+  left: 0%;
+  min-width: 15.625rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  color: black;
+
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),
+    0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    z-index: 3;
+}
+
+.navMenu5 {
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+.navMenu5:hover {
+  --tw-bg-opacity: 1;
+  background-color: whitesmoke;
+}
+
+.label2 {
+  position: relative;
+  width: 250px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+}
+
+.label2 input{
+  width: 100%;
+  padding: 15px;
+  background-color: white;
+  border-radius: 5px;
+  outline: none;
+  color: black;
+  font-size: 1em;
+}
+
+.label2 span{
+  position: absolute;
+  left: 0;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 1em;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.label2 input:valid ~ span,
+.label2 input:focus ~ span
+{
+    color: black;
+    transform: translateX(12px) translateY(-60px);
+    font-size: 1rem;
+    padding: 0 10px;
+    background: white;
+}
+
+.button1{
+  width: 15rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: black;
+  color: white;
+}
+
+input{
+    
+}

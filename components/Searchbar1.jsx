@@ -1,7 +1,7 @@
 import React from "react";
 import "./Searchbar1.css";
 
-const Searcbar1 = ({handleSearch}) => {
+const Searchbar1 = ({handleSearch}) => {
   return (
     <div>
       <section className="searchbar1">
@@ -18,4 +18,4 @@ const Searcbar1 = ({handleSearch}) => {
   );
 };
 
-export default Searcbar1;
+export default Searchbar1;

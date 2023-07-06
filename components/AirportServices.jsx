@@ -78,10 +78,13 @@ const AirportServices = () => {
         <div className="as2">Airport Services</div>
         <div className="as3 scrolling">
           {services.map((service, key) => (
-            <div key={key} className="as4">
+            <Link href={`${service.url}`} key={service.id}>
+            <div className="as4">
               <img src={service.imageUrl} className="asimg1" alt="img" />
               <p className="as5">{service.title}</p>
             </div>
+            </Link>
+            
           ))}
         </div>
       </section>
