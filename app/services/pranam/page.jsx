@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import Pranam from '@/components/pranamservice/pranam'
+import Pranam from '@/components/pranamservice/Pranam'
 
 const page = () => {
   return (
