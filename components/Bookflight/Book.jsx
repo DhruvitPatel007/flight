@@ -1,6 +1,6 @@
 "use client";
 import "@/components/Bookflight/Book.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "react-calendar/dist/Calendar.css";
 import * as React from "react";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
@@ -8,23 +8,56 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import Link from "next/link";
+import dayjs from "dayjs";
+import { useRouter } from "next/navigation";
+
 
 const Book = () => {
+
+  const router = useRouter();
+
   const [tripType, setTripType] = useState("oneway");
-  const [openOptions, setOpenOptions] = useState(false);
+
   const [openFrom, setOpenFrom] = useState(false);
   const [selectedFrom, setSelectedFrom] = useState("");
+  const [filteredFrom, setFilteredFrom] = useState([]);
+
   const [openTo, setOpenTo] = useState("");
   const [selectedTo, setSelectedTo] = useState("");
+  const [filteredTo, setFilteredTo] = useState([]);
+
+  const [openOptions, setOpenOptions] = useState(false);
   const [options, setOptions] = useState({
     adult: 1,
     children: 0,
-    room: 0,
+    infants: 0,
   });
 
   const [openClass, setOpenClass] = useState(false);
-
   const [selectedClass, setSelectedClass] = useState("");
+
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedReturnDate,setSelectedReturnDate] = useState(null);
+
+  useEffect(() => {
+    const latestDate = dayjs();
+
+    setSelectedDate(latestDate);
+  }, []);
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
+
+  useEffect(() => {
+    const latestDate = dayjs();
+
+    setSelectedReturnDate(latestDate);
+  }, []);
+
+  const handleReturnDateChange = (date) => {
+    setSelectedReturnDate(date);
+  };
 
   const handleClassSelection = (value) => {
     setSelectedClass(value);
@@ -53,8 +86,222 @@ const Book = () => {
     setTripType(e.target.value);
   };
 
+  const handleInputChange1 = (e) => {
+    const inputValue = e.target.value;
+    setSelectedFrom(inputValue);
+    const filtered = From.filter((f) =>
+      f.name.toLowerCase().includes(inputValue.toLowerCase())
+    );
+    setFilteredFrom(filtered);
+  };
+
+  const handleInputChange2 = (e) => {
+    const inputValue = e.target.value;
+    setSelectedTo(inputValue);
+    const filtered = To.filter((t) =>
+      t.name.toLowerCase().includes(inputValue.toLowerCase())
+    );
+    setFilteredTo(filtered);
+  };
+
+  const From = [
+    {
+      id: 1,
+      name: "Delhi",
+    },
+    {
+      id: 2,
+      name: "Mumbai",
+    },
+    {
+      id: 3,
+      name: "Ahemedabd",
+    },
+    {
+      id: 4,
+      name: "Bangaluru",
+    },
+    {
+      id: 5,
+      name: "Vadodara",
+    },
+    {
+      id: 6,
+      name: "Pune",
+    },
+    {
+      id: 7,
+      name: "Goa",
+    },
+    {
+      id: 8,
+      name: "Srilanka",
+    },
+    {
+      id: 9,
+      name: "Dubai",
+    },
+    {
+      id: 10,
+      name: "Canada",
+    },
+    {
+      id: 11,
+      name: "Sikkim",
+    },
+    {
+      id: 12,
+      name: "America",
+    },
+    {
+      id: 13,
+      name: "London",
+    },
+    {
+      id: 14,
+      name: "Thailand",
+    },
+    {
+      id: 15,
+      name: "Norway",
+    },
+  ];
+
+  const To = [
+    {
+      id: 1,
+      name: "Delhi",
+    },
+    {
+      id: 2,
+      name: "Mumbai",
+    },
+    {
+      id: 3,
+      name: "Ahemedabd",
+    },
+    {
+      id: 4,
+      name: "Bangaluru",
+    },
+    {
+      id: 5,
+      name: "Vadodara",
+    },
+    {
+      id: 6,
+      name: "Pune",
+    },
+    {
+      id: 7,
+      name: "Goa",
+    },
+    {
+      id: 8,
+      name: "Srilanka",
+    },
+    {
+      id: 9,
+      name: "Dubai",
+    },
+    {
+      id: 10,
+      name: "Canada",
+    },
+    {
+      id: 11,
+      name: "Sikkim",
+    },
+    {
+      id: 12,
+      name: "America",
+    },
+    {
+      id: 13,
+      name: "London",
+    },
+    {
+      id: 14,
+      name: "Thailand",
+    },
+    {
+      id: 15,
+      name: "Norway",
+    },
+  ];
+
+  const seats = [
+    {
+      id: 1,
+      name: "Economy",
+    },
+    {
+      id: 2,
+      name: "Business",
+    },
+    {
+      id: 3,
+      name: "First Class",
+    },
+  ];
+
+  const handleSubmit = (e) =>{
+      e.preventDefault();
+
+      const isValidFrom = From.some(
+        (f) => f.name.toLowerCase() === selectedFrom.toLowerCase()
+      );
+
+      const isValidTo = To.some(
+        (t) => t.name.toLowerCase() === selectedTo.toLowerCase()
+      );
+
+      if(selectedFrom.trim()===""){
+        alert("Please select Departure location");
+        return;
+      }
+      else if(selectedTo.trim()===""){
+        alert("Please select Destination");
+        return;
+      }
+      else if(selectedClass.trim()===""){
+        alert("Please Select Class");
+        return;
+      }
+      else if(!isValidFrom){
+        alert("Sorry we have not this departure location in our list");
+        return;
+      }
+      else if(!isValidTo){
+        alert("Sorry we have not this destination in our list");
+        return;
+      }
+      else if(selectedFrom==selectedTo){
+        alert("Departure and Destination can not be same");
+        return;
+      }
+
+
+
+      setSelectedClass("");
+      setSelectedFrom("");
+      setSelectedTo("");
+
+      console.log("Trip Type : ",tripType)
+      console.log("From : ",selectedFrom);
+      console.log("To : ",selectedTo);
+      console.log("Departure Date : ",selectedDate);
+      console.log("Return Date : ",selectedReturnDate);
+      console.log("Travellers : ",options.adult+options.children+options.infants);
+      console.log("Class : ",selectedClass);
+
+      router.push("/search");
+      
+
+  }
+
   return (
-    <form action="" className="booking-form">
+    <form action="" className="booking-form" onSubmit={handleSubmit}>
       <div className="booking1">Book Flights</div>
       <div className="radio-group">
         <label className="label1">
@@ -84,39 +331,32 @@ const Book = () => {
             className="i1"
             onClick={() => setOpenFrom(!openFrom)}
             value={selectedFrom}
+            onChange={handleInputChange1}
           />
           <span>From</span>
         </label>
 
         {openFrom && (
-          <ul className="navMenu4">
-            <li
-              className="navMenu5"
-              onClick={() => {
-                setOpenFrom(!openFrom);
-                handleFromSelection("Delhi");
-              }}
-            >
-              Delhi
-            </li>
-            <li
-              className="navMenu5"
-              onClick={() => {
-                setOpenFrom(!openFrom);
-                handleFromSelection("Mumbai");
-              }}
-            >
-              Mumbai
-            </li>
-            <li
-              className="navMenu5"
-              onClick={() => {
-                setOpenFrom(!openFrom);
-                handleFromSelection("Banglore");
-              }}
-            >
-              Banglore
-            </li>
+          <ul className="modal1">
+            {filteredFrom.length > 0
+              ? filteredFrom.map((f) => (
+                  <li
+                    key={f.id}
+                    className="modal2"
+                    onClick={() => handleFromSelection(f.name)}
+                  >
+                    {f.name}
+                  </li>
+                ))
+              : From.map((f) => (
+                  <li
+                    key={f.id}
+                    className="modal2"
+                    onClick={() => handleFromSelection(f.name)}
+                  >
+                    {f.name}
+                  </li>
+                ))}
           </ul>
         )}
       </div>
@@ -128,39 +368,32 @@ const Book = () => {
             className="i1"
             onClick={() => setOpenTo(!openTo)}
             value={selectedTo}
+            onChange={handleInputChange2}
           />
           <span>To</span>
         </label>
 
         {openTo && (
-          <ul className="navMenu4">
-            <li
-              className="navMenu5"
-              onClick={() => {
-                setOpenTo(!openTo);
-                handleToSelection("Delhi");
-              }}
-            >
-              Delhi
-            </li>
-            <li
-              className="navMenu5"
-              onClick={() => {
-                setOpenTo(!openTo);
-                handleToSelection("Mumbai");
-              }}
-            >
-              Mumbai
-            </li>
-            <li
-              className="navMenu5"
-              onClick={() => {
-                setOpenTo(!openTo);
-                handleToSelection("Banglore");
-              }}
-            >
-              Banglore
-            </li>
+          <ul className="modal1">
+            {filteredTo.length > 0
+              ? filteredTo.map((t) => (
+                  <li
+                    key={t.id}
+                    className="modal2"
+                    onClick={() => handleToSelection(t.name)}
+                  >
+                    {t.name}
+                  </li>
+                ))
+              : To.map((t) => (
+                  <li
+                    key={t.id}
+                    className="modal2"
+                    onClick={() => handleToSelection(t.name)}
+                  >
+                    {t.name}
+                  </li>
+                ))}
           </ul>
         )}
       </div>
@@ -168,27 +401,37 @@ const Book = () => {
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DemoContainer components={["DatePicker"]}>
           <div className="Dates">
-            <DatePicker label="Departurer" className="d1" />
+            <DatePicker
+              label="Departurer"
+              className="d1"
+              minDate={dayjs()}
+              value={selectedDate}
+              onChange={handleDateChange}
+            />
 
             {tripType === "roundtrip" && (
-              <DatePicker label="Return" className="d1" />
+              <DatePicker
+                label="Return"
+                className="d1"
+                minDate={dayjs()}
+                value={selectedReturnDate}
+                onChange={handleReturnDateChange}
+              />
             )}
           </div>
         </DemoContainer>
       </LocalizationProvider>
 
-      <div className="headerSearchItem">
-        <div className="from">
+      <div className="from">
         <label className="label2">
           <input
+            type="text"
             onClick={() => setOpenOptions(!openOptions)}
             className="i1"
-            value={options.adult + options.children + options.room}
+            value={options.adult + options.children + options.infants}
           />
           <span>Travellers</span>
         </label>
-        </div>
-        
 
         {openOptions && (
           <div className="options">
@@ -246,21 +489,21 @@ const Book = () => {
               <span className="optionText">Infants (0-2)</span>
               <div className="optionCounter">
                 <button
-                  disabled={options.room <= 0}
+                  disabled={options.infants <= 0}
                   className="optionCounterButton"
                   onClick={(e) => {
                     e.preventDefault();
-                    handleOption("room", "d");
+                    handleOption("infants", "d");
                   }}
                 >
                   -
                 </button>
-                <span className="optionCounterNumber">{options.room}</span>
+                <span className="optionCounterNumber">{options.infants}</span>
                 <button
                   className="optionCounterButton"
                   onClick={(e) => {
                     e.preventDefault();
-                    handleOption("room", "i");
+                    handleOption("infants", "i");
                   }}
                 >
                   +
@@ -271,7 +514,7 @@ const Book = () => {
         )}
       </div>
 
-      <div className="class1">
+      <div className="from">
         <label className="label2">
           <input
             type="text"
@@ -283,42 +526,23 @@ const Book = () => {
         </label>
 
         {openClass && (
-          <ul className="navMenu4">
-            <li
-              className="navMenu5"
-              onClick={() => {
-                setOpenClass(!openClass);
-                handleClassSelection("Economy");
-              }}
-            >
-              Economy
-            </li>
-            <li
-              className="navMenu5"
-              onClick={() => {
-                setOpenClass(!openClass);
-                handleClassSelection("Business Class");
-              }}
-            >
-              Business Class
-            </li>
-            <li
-              className="navMenu5"
-              onClick={() => {
-                setOpenClass(!openClass);
-                handleClassSelection("First Class");
-              }}
-            >
-              First Class
-            </li>
+          <ul className="modal1">
+            {seats.map((seat) => (
+              <li
+                key={seat.id}
+                className="modal2"
+                onClick={() => handleClassSelection(seat.name)}
+              >
+                {seat.name}
+              </li>
+            ))}
           </ul>
         )}
       </div>
-      
-      <Link href="/search">
-      <button onSubmit="" className="button1" >Search</button>
-              
-      </Link>
+
+        <button onSubmit="" className="button1" type="submit">
+          Search
+        </button>
     </form>
   );
 };

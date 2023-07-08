@@ -23,7 +23,7 @@
 }
 
 .i1 {
-  width: 25vw;
+  width: 50vw;
   border-radius: 1rem;
   padding: 0.5rem;
 }
@@ -33,7 +33,6 @@
 }
 
 .i2 {
-  width: 21vw;
   border-radius: 1rem;
   padding: 0.5rem;
 }
@@ -55,7 +54,7 @@
 
 .d1 {
   margin-bottom: 2rem;
-  width: 15rem;
+  width: 50vw;
 }
 
 .from{
@@ -120,10 +119,12 @@
   position: relative;
 }
 
-.navMenu4 {
+.modal1 {
   background-color: white;
   position: absolute;
-  top: 1.3rem;
+  top: 2.3rem;
+  max-height: 10rem;
+  overflow: scroll;
   left: 0%;
   min-width: 15.625rem;
   padding-left: 0.25rem;
@@ -139,27 +140,27 @@
     z-index: 3;
 }
 
-.navMenu5 {
+.modal2 {
   height: 2.5rem;
   display: flex;
   align-items: center;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
-.navMenu5:hover {
+.modal2:hover {
   --tw-bg-opacity: 1;
   background-color: whitesmoke;
 }
 
 .label2 {
   position: relative;
-  width: 250px;
+  width: 50vw;
   border: 1px solid rgba(255, 255, 255, 0.25);
 
 }
 
 .label2 input{
-  width: 100%;
+  width: 50vw;
   padding: 15px;
   background-color: white;
   border-radius: 5px;
@@ -181,20 +182,17 @@
 .label2 input:focus ~ span
 {
     color: black;
-    transform: translateX(12px) translateY(-60px);
+    transform: translateX(12px) translateY(-10px);
     font-size: 1rem;
     padding: 0 10px;
     background: white;
 }
 
 .button1{
-  width: 15rem;
+  width: 50vw;
   padding: 1rem;
   border-radius: 1rem;
   background-color: black;
   color: white;
 }
 
-input{
-    
-}

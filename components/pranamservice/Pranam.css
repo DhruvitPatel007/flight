@@ -1,65 +1,60 @@
-
-
-.container1{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.container1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
 }
 
 .container2 {
-    margin: 0 auto;
-    padding: 20px;
-  }
+  margin: 0 auto;
+  padding: 20px;
+}
 
-  .container3{
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    
-  }
+.container3 {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
 
+.field1 {
+  position: relative;
+}
 
+.field2 {
+  position: relative;
+}
 
-  .field1{
-    position: relative;
-  }
+.field3 {
+  position: relative;
+}
 
-  .field2{
-    position: relative;
-  }
+.label3 {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
 
-  .field3{
-    position: relative;
-  }
+.label3 input {
+  width: 100%;
+  padding: 15px;
+  background-color: white;
+  border-radius: 5px;
+  outline: none;
+  color: black;
+  font-size: 1rem;
+}
 
-  .label3 {
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-  
-  }
-  
-  .label3 input{
-    width: 100%;
-    padding: 15px;
-    background-color: white;
-    border-radius: 5px;
-    outline: none;
-    color: black;
-    font-size: 1rem;
-  }
-  
-  .label3 span{
-    position: absolute;
-    left: 0;
-    padding: 10px;
-    pointer-events: none;
-    font-size: 1em;
-    color: rgba(255, 255, 255, 0.25);
-  }
+.label3 span {
+  position: absolute;
+  left: 0;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 1em;
+  color: rgba(255, 255, 255, 0.25);
+}
 
-  .field1 .label3 input[type="text"] {
-    width: 51vw;
+.field1 .label3 input[type="text"] {
+  width: 51vw;
 }
 
 .field2 .label3 input[type="text"] {
@@ -71,46 +66,39 @@
   width: 25vw;
 }
 
+.label3 input:valid ~ span,
+.label3 input:focus ~ span {
+  color: black;
+  transform: translateX(12px) translateY(-7px);
+  font-size: 1rem;
+  padding: 0 10px;
+  background: white;
+}
 
+.label4 {
+  position: relative;
+  width: 250px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
 
-  
-  .label3 input:valid ~ span,
-  .label3 input:focus ~ span
-  {
-      color: black;
-      transform: translateX(12px) translateY(-7px);
-      font-size: 1rem;
-      padding: 0 10px;
-      background: white;
-  }
+.label4 input {
+  width: 100%;
+  padding: 15px;
+  background-color: white;
+  border-radius: 5px;
+  outline: none;
+  color: black;
+  font-size: 1rem;
+}
 
-  .label4 {
-    position: relative;
-    width: 250px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-  
-  }
-  
-  .label4 input{
-    width: 100%;
-    padding: 15px;
-    background-color: white;
-    border-radius: 5px;
-    outline: none;
-    color: black;
-    font-size: 1rem;
-  }
-  
-  .label4 span{
-    position: absolute;
-    left: 0;
-    padding: 10px;
-    pointer-events: none;
-    font-size: 1em;
-    color: rgba(255, 255, 255, 0.25);
-  }
-
-
+.label4 span {
+  position: absolute;
+  left: 0;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 1em;
+  color: rgba(255, 255, 255, 0.25);
+}
 
 .field2 .label4 input[type="text"] {
   margin-top: 2rem;
@@ -121,66 +109,165 @@
   width: 25vw;
 }
 
-  
-  .label4 input:valid ~ span,
-  .label4 input:focus ~ span
-  {
-      color: black;
-      transform: translateX(12px) translateY(23px);
-      font-size: 1rem;
-      padding: 0 10px;
-      background: white;
+.label4 input:valid ~ span,
+.label4 input:focus ~ span {
+  color: black;
+  transform: translateX(12px) translateY(23px);
+  font-size: 1rem;
+  padding: 0 10px;
+  background: white;
+}
+
+.in {
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+.modal1 {
+  background-color: white;
+  position: absolute;
+  top: 1.3rem;
+  left: 0%;
+  min-width: 15.625rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  color: black;
+
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),
+    0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  z-index: 3;
+}
+
+.modal11 {
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+.modal11:hover {
+  --tw-bg-opacity: 1;
+  background-color: whitesmoke;
+}
+
+.modal2 {
+  background-color: white;
+  position: absolute;
+  top: 3.3rem;
+  left: 0%;
+  max-height: 10rem;
+  overflow: scroll;
+  min-width: 15.625rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  color: black;
+
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),
+    0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  z-index: 3;
+}
+
+.modal22 {
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+.modal22:hover {
+  --tw-bg-opacity: 1;
+  background-color: whitesmoke;
+}
+
+.options {
+  z-index: 2;
+  position: absolute;
+  top: 5rem;
+  background-color: white;
+  color: gray;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
+  width: 200px;
+
+}
+
+.optionItem {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.optionCounter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: black;
+}
+
+.optionCounterButton {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #0071c2;
+  color: #0071c2;
+  cursor: pointer;
+  background-color: white;
+}
+
+.optionCounterButton:disabled {
+  cursor: not-allowed;
+}
+
+.pd1 {
+  margin-top: 1.5rem;
+  width: 25vw;
+}
+
+.book {
+  margin-top: 2rem;
+}
+.button1 {
+  width: 50vw;
+  padding: 1rem;
+  background-color: black;
+  color: white;
+  border-radius: 2rem;
+  font-size: large;
+}
+
+
+@media (max-width: 992px){
+  .button1{
+    width: 80vw;
   }
 
-  .in {
-    border-radius: 1rem;
-    padding: 0.5rem;
-  }
-
-  .navMenu4 {
-    background-color: white;
-    position: absolute;
-    top: 1.3rem;
-    left: 0%;
-    min-width: 15.625rem;
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-    color: black;
-  
-    --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
-      0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),
-      0 4px 6px -4px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-      var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-      z-index: 3;
+  .field1 .label3 input[type="text"] {
+    width: 81vw;
   }
   
-  .navMenu5 {
-    height: 2.5rem;
-    display: flex;
-    align-items: center;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+  .field2 .label4 input[type="text"] {
+    margin-top: 2rem;
+    width: 40vw;
   }
-  .navMenu5:hover {
-    --tw-bg-opacity: 1;
-    background-color: whitesmoke;
+  .field3 .label4 input[type="text"] {
+    margin-top: 2rem;
+    width: 40vw;
   }
 
   .pd1{
-    margin-top: 2rem;
-  width: 25vw;
+    width: 40vw;
   }
 
-  .book{
-    margin-top: 2rem;
+  .options{
+  left: -2rem;
   }
-  .button1{
-    width: 50vw;
-    padding: 1rem;
-    background-color: black;
-    color: white;
-    border-radius: 2rem;
-    font-size: large;
-  }
+}

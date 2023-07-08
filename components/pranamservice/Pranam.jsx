@@ -1,23 +1,241 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 import "@/components/pranamservice/Pranam.css";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import dayjs from "dayjs";
+import { useRouter } from "next/navigation";
 
 const Pranam = () => {
-  const [openFrom, setOpenFrom] = useState(false);
-  const [selectedFrom, setSelectedFrom] = useState("");
+
+  const router = useRouter();
+
+  const [openService, setOpenService] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
+  const [filteredServices, setFilteredServices] = useState([]);
+
+  const [openSector, setOpenSector] = useState(false);
+  const [selectedSector, setSelectedSector] = useState("");
+  const [filteredSectors, setFilteredSectors] = useState([]);
+
+  const [openDestination, setOpenDestination] = useState(false);
+  const [selectedDestination, setSelectedDestination] = useState("");
+  const [filteredDestination, setFilteredDestination] = useState([]);
+
+  const [openOptions, setOpenOptions] = useState(false);
+  const [options, setOptions] = useState({
+    adult: 1,
+    children: 0,
+    infants: 0,
+  });
+
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  useEffect(() => {
+    const latestDate = dayjs();
+
+    setSelectedDate(latestDate);
+  }, []);
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
+
+  const services = [
+    {
+      id: 1,
+      name: "Arrival",
+    },
+
+    {
+      id: 2,
+      name: "Departure",
+    },
+  ];
+
+  const travelSectors = [
+    {
+      id: 1,
+      name: "International",
+    },
+    {
+      id: 2,
+      name: "Domestic",
+    },
+  ];
+
+  const destinations = [
+    {
+      id: 1,
+      name: "Delhi",
+    },
+    {
+      id: 2,
+      name: "Mumbai",
+    },
+    {
+      id: 3,
+      name: "Ahemedabd",
+    },
+    {
+      id: 4,
+      name: "Bangaluru",
+    },
+    {
+      id: 5,
+      name: "Vadodara",
+    },
+    {
+      id: 6,
+      name: "Pune",
+    },
+    {
+      id: 7,
+      name: "Goa",
+    },
+    {
+      id: 8,
+      name: "Srilanka",
+    },
+    {
+      id: 9,
+      name: "Dubai",
+    },
+    {
+      id: 10,
+      name: "Canada",
+    },
+    {
+      id: 11,
+      name: "Sikkim",
+    },
+    {
+      id: 12,
+      name: "America",
+    },
+    {
+      id: 13,
+      name: "London",
+    },
+    {
+      id: 14,
+      name: "Thailand",
+    },
+    {
+      id: 15,
+      name: "Norway",
+    },
+  ];
 
   const handleFromSelection = (value) => {
-    setSelectedFrom(value);
-    setOpenFrom(false);
+    setSelectedService(value);
+    setOpenService(false);
+  };
+
+  const handleSectorSelection = (value) => {
+    setSelectedSector(value);
+    setOpenSector(false);
+  };
+
+  const handleDestinationSelection = (value) => {
+    setSelectedDestination(value);
+    setOpenDestination(false);
+  };
+
+  const handleInputChange1 = (e) => {
+    const inputValue = e.target.value;
+    setSelectedService(inputValue);
+    const filtered = services.filter((service) =>
+      service.name.toLowerCase().includes(inputValue.toLowerCase())
+    );
+    setFilteredServices(filtered);
+  };
+
+  const handleInputChange2 = (e) => {
+    const inputValue = e.target.value;
+    setSelectedSector(inputValue);
+    const filtered = travelSectors.filter((sector) =>
+      sector.name.toLowerCase().includes(inputValue.toLowerCase())
+    );
+    setFilteredSectors(filtered);
+  };
+
+  const handleInputChange3 = (e) => {
+    const inputValue = e.target.value;
+    setSelectedDestination(inputValue);
+    const filtered = destinations.filter((destination) =>
+      destination.name.toLowerCase().includes(inputValue.toLowerCase())
+    );
+    setFilteredDestination(filtered);
+  };
+
+  const handleOption = (name, operation) => {
+    setOptions((prev) => {
+      return {
+        ...prev,
+        [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
+      };
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const isValidService = services.some(
+      (service) => service.name.toLowerCase() === selectedService.toLowerCase()
+    );
+
+    const isValidSector = travelSectors.some(
+      (sector) => sector.name.toLowerCase() === selectedSector.toLowerCase()
+    );
+
+    const isValidDestination = destinations.some(
+      (destination) => destination.name.toLowerCase() === selectedDestination.toLowerCase()
+    );
+
+    if (selectedService.trim() === "") {
+      alert("Please select a service.");
+      return;
+    } else if (selectedSector.trim() === "") {
+      alert("Please select a sector");
+      return;
+    } else if (selectedDestination.trim() === "") {
+      alert("Please select a Destination");
+      return;
+    } else if (!isValidService) {
+      alert("Please choose a valid service");
+      return;
+
+    }
+    else if(!isValidSector){
+      alert("Please choose a valid sector");
+      return;
+
+    }
+    else if(!isValidDestination){
+      alert("Sorry we have not this destination in our list");
+      return;
+
+    }
+
+    setSelectedService("");
+    setSelectedDestination("");
+    setSelectedSector("");
+
+
+    console.log("Service: ", selectedService);
+    console.log("Travel Sector: ",selectedSector);
+    console.log("Destination: ",selectedDestination);
+    console.log("Date: ",selectedDate);
+    console.log("Guests: ",options.adult+options.children+options.infants);
+
+    router.push("/success");
   };
 
   return (
-    <form action="" className="Pranam-Form">
+    <form action="" className="Pranam-Form" onSubmit={handleSubmit}>
       <div className="container1">
         <h1>Pranam Service</h1>
 
@@ -27,33 +245,34 @@ const Pranam = () => {
               <input
                 type="text"
                 className="in"
-                onClick={() => setOpenFrom(!openFrom)}
-                value={selectedFrom}
+                onClick={() => setOpenService(!openService)}
+                onChange={handleInputChange1}
+                value={selectedService}
               />
-              <span>Service</span>
+              <span>Services</span>
             </label>
 
-            {openFrom && (
-              <ul className="navMenu4">
-                <li
-                  className="navMenu5"
-                  onClick={() => {
-                    setOpenFrom(!openFrom);
-                    handleFromSelection("Domestic");
-                  }}
-                >
-                  Domestic
-                </li>
-                <li
-                  className="navMenu5"
-                  onClick={() => {
-                    setOpenFrom(!openFrom);
-                    handleFromSelection("International");
-                  }}
-                >
-                  International
-                </li>
-                
+            {openService && (
+              <ul className="modal1">
+                {filteredServices.length > 0
+                  ? filteredServices.map((service) => (
+                      <li
+                        key={travelSectors.id}
+                        className="modal11"
+                        onClick={() => handleFromSelection(service.name)}
+                      >
+                        {service.name}
+                      </li>
+                    ))
+                  : services.map((service) => (
+                      <li
+                        key={service.id}
+                        className="modal11"
+                        onClick={() => handleFromSelection(service.name)}
+                      >
+                        {service.name}
+                      </li>
+                    ))}
               </ul>
             )}
           </div>
@@ -65,43 +284,36 @@ const Pranam = () => {
               <input
                 type="text"
                 className="in"
-                // onClick={() => setOpenFrom(!openFrom)}
-                value={selectedFrom}
+                onClick={() => setOpenSector(!openSector)}
+                onChange={handleInputChange2}
+                value={selectedSector}
               />
               <span>Travel Sector</span>
             </label>
 
-            {/* {openFrom && (
-              <ul className="navMenu4">
-                <li
-                  className="navMenu5"
-                  onClick={() => {
-                    setOpenFrom(!openFrom);
-                    handleFromSelection("Delhi");
-                  }}
-                >
-                  Delhi
-                </li>
-                <li
-                  className="navMenu5"
-                  onClick={() => {
-                    setOpenFrom(!openFrom);
-                    handleFromSelection("Mumbai");
-                  }}
-                >
-                  Mumbai
-                </li>
-                <li
-                  className="navMenu5"
-                  onClick={() => {
-                    setOpenFrom(!openFrom);
-                    handleFromSelection("Banglore");
-                  }}
-                >
-                  Banglore
-                </li>
+            {openSector && (
+              <ul className="modal2">
+                {filteredSectors.length > 0
+                  ? filteredSectors.map((sector) => (
+                      <li
+                        key={sector.id}
+                        className="modal22"
+                        onClick={() => handleSectorSelection(sector.name)}
+                      >
+                        {sector.name}
+                      </li>
+                    ))
+                  : travelSectors.map((sector) => (
+                      <li
+                        key={sector.id}
+                        className="modal22"
+                        onClick={() => handleSectorSelection(sector.name)}
+                      >
+                        {sector.name}
+                      </li>
+                    ))}
               </ul>
-            )} */}
+            )}
           </div>
 
           <div className="field3">
@@ -109,43 +321,40 @@ const Pranam = () => {
               <input
                 type="text"
                 className="in"
-                // onClick={() => setOpenFrom(!openFrom)}
-                value={selectedFrom}
+                onClick={() => setOpenDestination(!openDestination)}
+                onChange={handleInputChange3}
+                value={selectedDestination}
               />
-              <span>Origin</span>
+              <span>Destination</span>
             </label>
 
-            {/* {openFrom && (
-              <ul className="navMenu4">
-                <li
-                  className="navMenu5"
-                  onClick={() => {
-                    setOpenFrom(!openFrom);
-                    handleFromSelection("Delhi");
-                  }}
-                >
-                  Delhi
-                </li>
-                <li
-                  className="navMenu5"
-                  onClick={() => {
-                    setOpenFrom(!openFrom);
-                    handleFromSelection("Mumbai");
-                  }}
-                >
-                  Mumbai
-                </li>
-                <li
-                  className="navMenu5"
-                  onClick={() => {
-                    setOpenFrom(!openFrom);
-                    handleFromSelection("Banglore");
-                  }}
-                >
-                  Banglore
-                </li>
+            {openDestination && (
+              <ul className="modal2">
+                {filteredDestination.length > 0
+                  ? filteredDestination.map((destination) => (
+                      <li
+                        key={destination.id}
+                        className="modal22"
+                        onClick={() =>
+                          handleDestinationSelection(destination.name)
+                        }
+                      >
+                        {destination.name}
+                      </li>
+                    ))
+                  : destinations.map((destination) => (
+                      <li
+                        key={destination.id}
+                        className="modal22"
+                        onClick={() =>
+                          handleDestinationSelection(destination.name)
+                        }
+                      >
+                        {destination.name}
+                      </li>
+                    ))}
               </ul>
-            )} */}
+            )}
           </div>
         </div>
 
@@ -153,7 +362,13 @@ const Pranam = () => {
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DemoContainer components={["DatePicker"]}>
               <div className="Dates">
-                <DatePicker label="Date" className="pd1" />
+                <DatePicker
+                  label="Date"
+                  className="pd1"
+                  minDate={dayjs()}
+                  value={selectedDate}
+                  onChange={handleDateChange}
+                />
               </div>
             </DemoContainer>
           </LocalizationProvider>
@@ -163,49 +378,102 @@ const Pranam = () => {
               <input
                 type="text"
                 className="in"
-                // onClick={() => setOpenFrom(!openFrom)}
-                value={selectedFrom}
-                defaultValue="Noo"
+                onClick={() => setOpenOptions(!openOptions)}
+                value={options.adult + options.children + options.infants}
               />
-              <span>Destination</span>
+              <span>Guests</span>
             </label>
 
-            {/* {openFrom && (
-              <ul className="navMenu4">
-                <li
-                  className="navMenu5"
-                  onClick={() => {
-                    setOpenFrom(!openFrom);
-                    handleFromSelection("Delhi");
-                  }}
-                >
-                  Delhi
-                </li>
-                <li
-                  className="navMenu5"
-                  onClick={() => {
-                    setOpenFrom(!openFrom);
-                    handleFromSelection("Mumbai");
-                  }}
-                >
-                  Mumbai
-                </li>
-                <li
-                  className="navMenu5"
-                  onClick={() => {
-                    setOpenFrom(!openFrom);
-                    handleFromSelection("Banglore");
-                  }}
-                >
-                  Banglore
-                </li>
-              </ul>
-            )} */}
+            {openOptions && (
+              <div className="options">
+                <div className="optionItem">
+                  <span className="optionText">Adult (18+)</span>
+                  <div className="optionCounter">
+                    <button
+                      disabled={options.adult <= 1}
+                      className="optionCounterButton"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleOption("adult", "d");
+                      }}
+                    >
+                      -
+                    </button>
+                    <span className="optionCounterNumber">{options.adult}</span>
+                    <button
+                      className="optionCounterButton"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleOption("adult", "i");
+                      }}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+                <div className="optionItem">
+                  <span>Children (12-18)</span>
+                  <div className="optionCounter">
+                    <button
+                      disabled={options.children <= 0}
+                      className="optionCounterButton"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleOption("children", "d");
+                      }}
+                    >
+                      -
+                    </button>
+                    <span className="optionCounterNumber">
+                      {options.children}
+                    </span>
+                    <button
+                      className="optionCounterButton"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleOption("children", "i");
+                      }}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+                <div className="optionItem">
+                  <span className="optionText">Infants (0-2)</span>
+                  <div className="optionCounter">
+                    <button
+                      disabled={options.infants <= 0}
+                      className="optionCounterButton"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleOption("infants", "d");
+                      }}
+                    >
+                      -
+                    </button>
+                    <span className="optionCounterNumber">
+                      {options.infants}
+                    </span>
+                    <button
+                      className="optionCounterButton"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleOption("infants", "i");
+                      }}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
         <div className="book">
-              <button className="button1">Book</button>
+          <button type="submit" className="button1">
+            Book
+          </button>
         </div>
       </div>
     </form>
