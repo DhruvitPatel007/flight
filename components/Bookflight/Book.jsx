@@ -11,9 +11,7 @@ import Link from "next/link";
 import dayjs from "dayjs";
 import { useRouter } from "next/navigation";
 
-
 const Book = () => {
-
   const router = useRouter();
 
   const [tripType, setTripType] = useState("oneway");
@@ -37,7 +35,7 @@ const Book = () => {
   const [selectedClass, setSelectedClass] = useState("");
 
   const [selectedDate, setSelectedDate] = useState(null);
-  const [selectedReturnDate,setSelectedReturnDate] = useState(null);
+  const [selectedReturnDate, setSelectedReturnDate] = useState(null);
 
   useEffect(() => {
     const latestDate = dayjs();
@@ -103,6 +101,14 @@ const Book = () => {
     );
     setFilteredTo(filtered);
   };
+
+  const handleInputChange3 = (e) =>{
+    setOptions(e.target.value);
+  }
+
+  const handleInputChange4 = (e)=>{
+    setSelectedClass(e.target.value);
+  }
 
   const From = [
     {
@@ -245,60 +251,54 @@ const Book = () => {
     },
   ];
 
-  const handleSubmit = (e) =>{
-      e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-      const isValidFrom = From.some(
-        (f) => f.name.toLowerCase() === selectedFrom.toLowerCase()
-      );
+    const isValidFrom = From.some(
+      (f) => f.name.toLowerCase() === selectedFrom.toLowerCase()
+    );
 
-      const isValidTo = To.some(
-        (t) => t.name.toLowerCase() === selectedTo.toLowerCase()
-      );
+    const isValidTo = To.some(
+      (t) => t.name.toLowerCase() === selectedTo.toLowerCase()
+    );
 
-      if(selectedFrom.trim()===""){
-        alert("Please select Departure location");
-        return;
-      }
-      else if(selectedTo.trim()===""){
-        alert("Please select Destination");
-        return;
-      }
-      else if(selectedClass.trim()===""){
-        alert("Please Select Class");
-        return;
-      }
-      else if(!isValidFrom){
-        alert("Sorry we have not this departure location in our list");
-        return;
-      }
-      else if(!isValidTo){
-        alert("Sorry we have not this destination in our list");
-        return;
-      }
-      else if(selectedFrom==selectedTo){
-        alert("Departure and Destination can not be same");
-        return;
-      }
+    if (selectedFrom.trim() === "") {
+      alert("Please select Departure location");
+      return;
+    } else if (selectedTo.trim() === "") {
+      alert("Please select Destination");
+      return;
+    } else if (selectedClass.trim() === "") {
+      alert("Please Select Class");
+      return;
+    } else if (!isValidFrom) {
+      alert("Sorry we have not this departure location in our list");
+      return;
+    } else if (!isValidTo) {
+      alert("Sorry we have not this destination in our list");
+      return;
+    } else if (selectedFrom == selectedTo) {
+      alert("Departure and Destination can not be same");
+      return;
+    }
 
+    setSelectedClass("");
+    setSelectedFrom("");
+    setSelectedTo("");
 
+    console.log("Trip Type : ", tripType);
+    console.log("From : ", selectedFrom);
+    console.log("To : ", selectedTo);
+    console.log("Departure Date : ", selectedDate);
+    console.log("Return Date : ", selectedReturnDate);
+    console.log(
+      "Travellers : ",
+      options.adult + options.children + options.infants
+    );
+    console.log("Class : ", selectedClass);
 
-      setSelectedClass("");
-      setSelectedFrom("");
-      setSelectedTo("");
-
-      console.log("Trip Type : ",tripType)
-      console.log("From : ",selectedFrom);
-      console.log("To : ",selectedTo);
-      console.log("Departure Date : ",selectedDate);
-      console.log("Return Date : ",selectedReturnDate);
-      console.log("Travellers : ",options.adult+options.children+options.infants);
-      console.log("Class : ",selectedClass);
-
-      router.push("/search");
-      
-
-  }
+    router.push("/search");
+  };
 
   return (
     <form action="" className="booking-form" onSubmit={handleSubmit}>
@@ -429,6 +429,7 @@ const Book = () => {
             onClick={() => setOpenOptions(!openOptions)}
             className="i1"
             value={options.adult + options.children + options.infants}
+            onChange={handleInputChange3}
           />
           <span>Travellers</span>
         </label>
@@ -521,6 +522,7 @@ const Book = () => {
             className="i1"
             onClick={() => setOpenClass(!openClass)}
             value={selectedClass}
+            onChange={handleInputChange4}
           />
           <span>Class</span>
         </label>
@@ -540,9 +542,9 @@ const Book = () => {
         )}
       </div>
 
-        <button onSubmit="" className="button1" type="submit">
-          Search
-        </button>
+      <button className="button1" type="submit">
+        Search
+      </button>
     </form>
   );
 };

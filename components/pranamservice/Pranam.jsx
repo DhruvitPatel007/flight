@@ -172,6 +172,12 @@ const Pranam = () => {
     setFilteredDestination(filtered);
   };
 
+  const handleInputChange4 = (e) => {
+     
+    setOpenOptions(e.target.value);
+  };
+
+
   const handleOption = (name, operation) => {
     setOptions((prev) => {
       return {
@@ -246,8 +252,8 @@ const Pranam = () => {
                 type="text"
                 className="in"
                 onClick={() => setOpenService(!openService)}
-                onChange={handleInputChange1}
                 value={selectedService}
+                onChange={handleInputChange1}
               />
               <span>Services</span>
             </label>
@@ -285,8 +291,8 @@ const Pranam = () => {
                 type="text"
                 className="in"
                 onClick={() => setOpenSector(!openSector)}
-                onChange={handleInputChange2}
                 value={selectedSector}
+                onChange={handleInputChange2}
               />
               <span>Travel Sector</span>
             </label>
@@ -322,8 +328,8 @@ const Pranam = () => {
                 type="text"
                 className="in"
                 onClick={() => setOpenDestination(!openDestination)}
-                onChange={handleInputChange3}
                 value={selectedDestination}
+                onChange={handleInputChange3}
               />
               <span>Destination</span>
             </label>
@@ -380,6 +386,7 @@ const Pranam = () => {
                 className="in"
                 onClick={() => setOpenOptions(!openOptions)}
                 value={options.adult + options.children + options.infants}
+                onChange={handleInputChange4}
               />
               <span>Guests</span>
             </label>
