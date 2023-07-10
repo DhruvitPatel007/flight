@@ -1,8 +1,9 @@
 import React from 'react'
+import "./success.css"
 
 const page = () => {
   return (
-    <div>Service has been booked successfully</div>
+    <div className='message'>Service has been booked successfully</div>
   )
 }
 

@@ -10,6 +10,9 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import Link from "next/link";
 import dayjs from "dayjs";
 import { useRouter } from "next/navigation";
+import { db } from "@/firebase/Firebase";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { Timestamp } from "firebase/firestore";
 
 const Book = () => {
   const router = useRouter();
@@ -37,6 +40,8 @@ const Book = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedReturnDate, setSelectedReturnDate] = useState(null);
 
+  const [minReturnDate, setMinReturnDate] = useState(dayjs().add(1, "day"));
+
   useEffect(() => {
     const latestDate = dayjs();
 
@@ -45,6 +50,18 @@ const Book = () => {
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
+
+    const newMinReturnDate = date
+      ? dayjs(date).add(1, "day")
+      : dayjs().add(1, "day");
+    setMinReturnDate(newMinReturnDate);
+
+    if (
+      selectedReturnDate &&
+      dayjs(selectedReturnDate).isBefore(newMinReturnDate)
+    ) {
+      setSelectedReturnDate(null);
+    }
   };
 
   useEffect(() => {
@@ -102,13 +119,13 @@ const Book = () => {
     setFilteredTo(filtered);
   };
 
-  const handleInputChange3 = (e) =>{
+  const handleInputChange3 = (e) => {
     setOptions(e.target.value);
-  }
+  };
 
-  const handleInputChange4 = (e)=>{
+  const handleInputChange4 = (e) => {
     setSelectedClass(e.target.value);
-  }
+  };
 
   const From = [
     {
@@ -251,7 +268,7 @@ const Book = () => {
     },
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const isValidFrom = From.some(
@@ -297,7 +314,34 @@ const Book = () => {
     );
     console.log("Class : ", selectedClass);
 
-    router.push("/search");
+    try {
+      const selectedDateTimestamp = dayjs(selectedDate).toISOString();
+      const selectedReturnDateTimestamp =
+        dayjs(selectedReturnDate).toISOString();
+
+      const tripData = {
+        tripType,
+        selectedFrom,
+        selectedTo,
+        selectedDate: selectedDateTimestamp,
+        selectedReturnDate: selectedReturnDateTimestamp,
+        travellers: options.adult + options.children + options.infants,
+        selectedClass,
+        timestamp: new Date().toISOString(),
+      };
+
+      const tripsCollectionRef = collection(db, "trips");
+      await addDoc(tripsCollectionRef, tripData);
+      console.log("Trip data saved successfully!");
+
+      setSelectedClass("");
+      setSelectedFrom("");
+      setSelectedTo("");
+
+      router.push("/success");
+    } catch (error) {
+      console.error("Error saving trip data:", error);
+    }
   };
 
   return (
@@ -413,7 +457,7 @@ const Book = () => {
               <DatePicker
                 label="Return"
                 className="d1"
-                minDate={dayjs()}
+                minDate={minReturnDate}
                 value={selectedReturnDate}
                 onChange={handleReturnDateChange}
               />

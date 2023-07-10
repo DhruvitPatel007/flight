@@ -1,15 +1,13 @@
-'use client'
+"use client";
 import React from "react";
 import "./services.css";
 import "@/styles/tab.css";
 import Searchbar1 from "@/components/Searchbar1";
 import { useState } from "react";
+import Link from "next/link";
 
 const Services = () => {
-
   const [searchValue, setSearchValue] = useState("");
-
-  
 
   const services = [
     {
@@ -17,6 +15,7 @@ const Services = () => {
       title: "Book Flights",
       imageUrl:
         "https://media.istockphoto.com/id/155439315/photo/passenger-airplane-flying-above-clouds-during-sunset.jpg?s=612x612&w=0&k=20&c=LJWadbs3B-jSGJBVy9s0f8gZMHi2NvWFXa3VJ2lFcL0=",
+      url: "/flightbook",
     },
     {
       id: 2,
@@ -28,6 +27,7 @@ const Services = () => {
       id: 3,
       title: "Pranam",
       imageUrl: "https://pbs.twimg.com/media/E5W09YZVEAcZWbZ.jpg",
+      url: "/pranam",
     },
 
     {
@@ -50,7 +50,7 @@ const Services = () => {
     },
   ];
 
-  const filteredServices = services.filter(service =>
+  const filteredServices = services.filter((service) =>
     service.title.toLowerCase().includes(searchValue.toLowerCase())
   );
 
@@ -61,17 +61,19 @@ const Services = () => {
     <div className="container1">
       <div className="container2">
         <div className="s1">Services</div>
-        <Searchbar1 handleSearch={handleSearch}/>
+        <Searchbar1 handleSearch={handleSearch} />
       </div>
       <div className="s2">Popular Services</div>
 
       <section>
         <div className="s3 scrolling">
           {filteredServices.map((service, key) => (
-            <div key={key} className="as4">
-              <img src={service.imageUrl} className="asimg1" alt="img" />
-              <p className="as5">{service.title}</p>
-            </div>
+            <Link href={`${service.url}`} key={key}>
+              <div className="as4">
+                <img src={service.imageUrl} className="asimg1" alt="img" />
+                <p className="as5">{service.title}</p>
+              </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -116,7 +118,6 @@ const Services = () => {
           </div>
         </section>
       </div>
-      
     </div>
   );
 };

@@ -10,6 +10,7 @@ const AirportServices = () => {
       title: "Book Flights",
       imageUrl:
         "https://media.istockphoto.com/id/155439315/photo/passenger-airplane-flying-above-clouds-during-sunset.jpg?s=612x612&w=0&k=20&c=LJWadbs3B-jSGJBVy9s0f8gZMHi2NvWFXa3VJ2lFcL0=",
+        url:"/flightbook"
     },
     {
       id: 2,
@@ -21,6 +22,7 @@ const AirportServices = () => {
       id: 3,
       title: "Pranam",
       imageUrl: "https://pbs.twimg.com/media/E5W09YZVEAcZWbZ.jpg",
+      url:"/pranam"
     },
     {
       id: 4,

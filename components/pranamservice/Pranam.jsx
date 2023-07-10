@@ -8,9 +8,11 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from "dayjs";
 import { useRouter } from "next/navigation";
+import { db } from "@/firebase/Firebase";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { Timestamp } from "firebase/firestore";
 
 const Pranam = () => {
-
   const router = useRouter();
 
   const [openService, setOpenService] = useState(false);
@@ -173,10 +175,8 @@ const Pranam = () => {
   };
 
   const handleInputChange4 = (e) => {
-     
     setOpenOptions(e.target.value);
   };
-
 
   const handleOption = (name, operation) => {
     setOptions((prev) => {
@@ -187,7 +187,7 @@ const Pranam = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const isValidService = services.some(
       (service) => service.name.toLowerCase() === selectedService.toLowerCase()
@@ -198,7 +198,8 @@ const Pranam = () => {
     );
 
     const isValidDestination = destinations.some(
-      (destination) => destination.name.toLowerCase() === selectedDestination.toLowerCase()
+      (destination) =>
+        destination.name.toLowerCase() === selectedDestination.toLowerCase()
     );
 
     if (selectedService.trim() === "") {
@@ -213,31 +214,43 @@ const Pranam = () => {
     } else if (!isValidService) {
       alert("Please choose a valid service");
       return;
-
-    }
-    else if(!isValidSector){
+    } else if (!isValidSector) {
       alert("Please choose a valid sector");
       return;
-
-    }
-    else if(!isValidDestination){
+    } else if (!isValidDestination) {
       alert("Sorry we have not this destination in our list");
       return;
-
     }
 
     setSelectedService("");
     setSelectedDestination("");
     setSelectedSector("");
 
+    try {
+      const selectedDateTimestamp = dayjs(selectedDate).toISOString();
+      const pranamServiceData = {
+        selectedService,
+        selectedDate: selectedDateTimestamp,
+
+        selectedDestination,
+        selectedSector,
+        guests: options.adult + options.children + options.infants,
+        timestamp: new Date().toISOString(),
+      };
+
+      const pranamServicesCollectionRef = collection(db, "Pranam Service");
+      await addDoc(pranamServicesCollectionRef, pranamServiceData);
+      console.log("Pranam Service data saved successfully!");
+      router.push("/success");
+    } catch {
+      console.error("Error saving Pranam Service data:", error);
+    }
 
     console.log("Service: ", selectedService);
-    console.log("Travel Sector: ",selectedSector);
-    console.log("Destination: ",selectedDestination);
-    console.log("Date: ",selectedDate);
-    console.log("Guests: ",options.adult+options.children+options.infants);
-
-    router.push("/success");
+    console.log("Travel Sector: ", selectedSector);
+    console.log("Destination: ", selectedDestination);
+    console.log("Date: ", selectedDate);
+    console.log("Guests: ", options.adult + options.children + options.infants);
   };
 
   return (
