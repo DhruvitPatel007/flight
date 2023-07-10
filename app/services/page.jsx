@@ -61,7 +61,7 @@ const Services = () => {
     <div className="container1">
       <div className="container2">
         <div className="s1">Services</div>
-        <Searchbar1 handleSearch={handleSearch} />
+        <Searchbar1 className="searchbar1" handleSearch={handleSearch} />
       </div>
       <div className="s2">Popular Services</div>
 
