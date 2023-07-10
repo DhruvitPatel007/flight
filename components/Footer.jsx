@@ -69,17 +69,6 @@ const Footer = () => {
 
     {
       id: 2,
-      title: "Company",
-      subTitles: [
-        {
-          sid: 1,
-          name: "About Us",
-        }
-      ],
-    },
-
-    {
-      id: 3,
       title: "Airport Businesses",
       subTitles: [
         {
@@ -104,7 +93,7 @@ const Footer = () => {
     },
 
     {
-      id: 4,
+      id: 3,
       title: "Help And Support",
       subTitles: [
         {
@@ -119,7 +108,18 @@ const Footer = () => {
         {
           sid: 3,
           name: "FAQs",
-        }
+        },
+      ],
+    },
+
+    {
+      id: 4,
+      title: "Company",
+      subTitles: [
+        {
+          sid: 1,
+          name: "About Us",
+        },
       ],
     },
   ];

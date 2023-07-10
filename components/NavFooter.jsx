@@ -6,56 +6,31 @@ import { AiOutlineHome } from "react-icons/ai";
 import { CgMenuGridR } from "react-icons/cg";
 import { MdMenuBook } from "react-icons/md";
 import { FiMoreHorizontal } from "react-icons/fi";
-import "../styles/tab.css"
-import "../styles/mobile.css"
+import "../styles/tab.css";
+import "../styles/mobile.css";
+import { useState } from "react";
 
 const Navfoot = () => {
+  const [menuItems] = useState([
+    { id: 1, href: "/", icon: AiOutlineHome, label: "Home" },
+    { id: 2, href: "/services", icon: MdMenuBook, label: "Services" },
+    { id: 3, href: "/travelogues", icon: CgMenuGridR, label: "Orders" },
+    { id: 4, href: "/shop", icon: BiCart, label: "Cart" },
+    { id: 5, href: "/shop", icon: FiMoreHorizontal, label: "More" },
+  ]);
+
   return (
     <li className="nf1">
-      <div>
-        <Link href="/">
-          <div className="nf2">
-            <AiOutlineHome size={25} />
-            Home
-          </div>
-        </Link>
-      </div>
-
-      <div>
-        <Link href="/services">
-          <div className="nf2">
-            <MdMenuBook size={25} />
-            Services
-          </div>
-        </Link>
-      </div>
-
-      <div>
-        <Link href="/travelogues">
-          <div className="nf2">
-            <CgMenuGridR size={25} />
-            Orders
-          </div>
-        </Link>
-      </div>
-
-      <div>
-        <Link href="/shop">
-          <div className="nf2">
-            <BiCart size={25} />
-            Cart
-          </div>
-        </Link>
-      </div>
-
-      <div>
-        <Link href="/shop">
-          <div className="nf2">
-            <FiMoreHorizontal size={25} />
-            More
-          </div>
-        </Link>
-      </div>
+      {menuItems.map((item) => (
+        <div key={item.id}>
+          <Link href={item.href}>
+            <div className="nf2">
+              {<item.icon size={25} />}
+              {item.label}
+            </div>
+          </Link>
+        </div>
+      ))}
     </li>
   );
 };

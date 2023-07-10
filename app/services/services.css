@@ -85,4 +85,7 @@
     margin-left: 0;
     grid-gap: 1rem;
   }
+  .searchbar1{
+    margin-top: -0.5rem;
+  }
 }
