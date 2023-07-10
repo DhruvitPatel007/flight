@@ -7,7 +7,6 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import Link from "next/link";
 import dayjs from "dayjs";
 import { useRouter } from "next/navigation";
 import { db } from "@/firebase/Firebase";
@@ -40,7 +39,7 @@ const Book = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedReturnDate, setSelectedReturnDate] = useState(null);
 
-  const [minReturnDate, setMinReturnDate] = useState(dayjs().add(1, "day"));
+  const [minReturnDate, setMinReturnDate] = useState(dayjs().add(0, "day"));
 
   useEffect(() => {
     const latestDate = dayjs();
