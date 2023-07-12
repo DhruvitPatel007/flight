@@ -54,7 +54,6 @@
 }
 
 .d1 {
-  margin-bottom: 2rem;
   width: 50vw;
 }
 
@@ -120,10 +119,10 @@
   position: relative;
 }
 
-.modal1 {
+.bmodal1 {
   background-color: white;
   position: absolute;
-  top: 2.3rem;
+  top: 2.4rem;
   max-height: 10rem;
   overflow: scroll;
   left: 0%;
@@ -131,6 +130,7 @@
   padding-left: 0.25rem;
   padding-right: 0.25rem;
   color: black;
+  border-radius: 2rem;
 
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
     0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -141,14 +141,14 @@
     z-index: 3;
 }
 
-.modal2 {
+.bmodal2 {
   height: 2.5rem;
   display: flex;
   align-items: center;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
-.modal2:hover {
+.bmodal2:hover {
   --tw-bg-opacity: 1;
   background-color: whitesmoke;
 }

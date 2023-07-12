@@ -187,7 +187,7 @@ const Book = () => {
       id: 15,
       name: "Norway",
     },
-  ];
+  ]; 
 
   const To = [
     {
@@ -380,12 +380,12 @@ const Book = () => {
         </label>
 
         {openFrom && (
-          <ul className="modal1">
+          <ul className="bmodal1">
             {filteredFrom.length > 0
               ? filteredFrom.map((f) => (
                   <li
                     key={f.id}
-                    className="modal2"
+                    className="bmodal2"
                     onClick={() => handleFromSelection(f.name)}
                   >
                     {f.name}
@@ -394,7 +394,7 @@ const Book = () => {
               : From.map((f) => (
                   <li
                     key={f.id}
-                    className="modal2"
+                    className="bmodal2"
                     onClick={() => handleFromSelection(f.name)}
                   >
                     {f.name}
@@ -417,12 +417,12 @@ const Book = () => {
         </label>
 
         {openTo && (
-          <ul className="modal1">
+          <ul className="bmodal1">
             {filteredTo.length > 0
               ? filteredTo.map((t) => (
                   <li
                     key={t.id}
-                    className="modal2"
+                    className="bmodal2"
                     onClick={() => handleToSelection(t.name)}
                   >
                     {t.name}
@@ -431,7 +431,7 @@ const Book = () => {
               : To.map((t) => (
                   <li
                     key={t.id}
-                    className="modal2"
+                    className="bmodal2"
                     onClick={() => handleToSelection(t.name)}
                   >
                     {t.name}
@@ -571,11 +571,11 @@ const Book = () => {
         </label>
 
         {openClass && (
-          <ul className="modal1">
+          <ul className="bmodal1">
             {seats.map((seat) => (
               <li
                 key={seat.id}
-                className="modal2"
+                className="bmodal2"
                 onClick={() => handleClassSelection(seat.name)}
               >
                 {seat.name}
