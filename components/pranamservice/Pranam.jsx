@@ -302,7 +302,7 @@ const Pranam = () => {
               <span>Services</span>
             </label>
 
-            {openService &&  (
+            {openService && (
               <ul className="modal1">
                 {selectedService.trim() === "" ? (
                   services.map((service) => (
@@ -423,19 +423,21 @@ const Pranam = () => {
         </div>
 
         <div className="container3">
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DemoContainer components={["DatePicker"]}>
-              <div className="D">
-                <DatePicker
-                  label="Date"
-                  className="pd1"
-                  minDate={dayjs()}
-                  value={selectedDate}
-                  onChange={handleDateChange}
-                />
-              </div>
-            </DemoContainer>
-          </LocalizationProvider>
+          <div className="Dates">
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DemoContainer components={["DatePicker"]}>
+                <div className="D">
+                  <DatePicker
+                    label="Date"
+                    className="pd1"
+                    minDate={dayjs()}
+                    value={selectedDate}
+                    onChange={handleDateChange}
+                  />
+                </div>
+              </DemoContainer>
+            </LocalizationProvider>
+          </div>
 
           <div className="field3">
             <label className="label4">
