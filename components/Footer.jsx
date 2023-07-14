@@ -73,7 +73,7 @@ const Footer = () => {
       subTitles: [
         {
           sid: 1,
-          name: "Ground Transportation",
+          name: "Ground",
         },
         {
           sid: 2,

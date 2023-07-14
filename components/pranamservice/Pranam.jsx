@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import { db } from "@/firebase/Firebase";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { Timestamp } from "firebase/firestore";
+import toast, { Toaster } from "react-hot-toast";
 
 const Pranam = () => {
   const router = useRouter();
@@ -35,6 +36,34 @@ const Pranam = () => {
   });
 
   const [selectedDate, setSelectedDate] = useState(null);
+
+  const handleServiceClick = () => {
+    setOpenService(!openService);
+    setOpenSector(false);
+    setOpenDestination(false);
+    setOpenOptions(false);
+  };
+
+  const handleSectorClick = () => {
+    setOpenService(false);
+    setOpenSector(!openSector);
+    setOpenDestination(false);
+    setOpenOptions(false);
+  };
+
+  const handleDestinationClick = () => {
+    setOpenService(false);
+    setOpenSector(false);
+    setOpenDestination(!openDestination);
+    setOpenOptions(false);
+  };
+
+  const handleGuestsClick = () => {
+    setOpenService(false);
+    setOpenSector(false);
+    setOpenDestination(false);
+    setOpenOptions(!openOptions);
+  };
 
   useEffect(() => {
     const latestDate = dayjs();
@@ -132,7 +161,7 @@ const Pranam = () => {
     },
   ];
 
-  const handleFromSelection = (value) => {
+  const handleServiceSelection = (value) => {
     setSelectedService(value);
     setOpenService(false);
   };
@@ -203,22 +232,22 @@ const Pranam = () => {
     );
 
     if (selectedService.trim() === "") {
-      alert("Please select a service.");
+      toast.error("Please select a service.");
       return;
     } else if (selectedSector.trim() === "") {
-      alert("Please select a sector");
+      toast.error("Please select a sector");
       return;
     } else if (selectedDestination.trim() === "") {
-      alert("Please select a Destination");
+      toast.error("Please select a Destination");
       return;
     } else if (!isValidService) {
-      alert("Please choose a valid service");
+      toast.error("Please choose a valid service");
       return;
     } else if (!isValidSector) {
-      alert("Please choose a valid sector");
+      toast.error("Please choose a valid sector");
       return;
     } else if (!isValidDestination) {
-      alert("Sorry we have not this destination in our list");
+      toast.error("Sorry we have not this destination in our list");
       return;
     }
 
@@ -240,6 +269,8 @@ const Pranam = () => {
 
       const pranamServicesCollectionRef = collection(db, "Pranam Service");
       await addDoc(pranamServicesCollectionRef, pranamServiceData);
+
+      toast.success("Service Booked SuccessFully");
       console.log("Pranam Service data saved successfully!");
       router.push("/success");
     } catch {
@@ -263,35 +294,40 @@ const Pranam = () => {
             <label className="label3">
               <input
                 type="text"
-                className="in"
-                onClick={() => setOpenService(!openService)}
+                className="in cursor_pointer"
+                onClick={handleServiceClick}
                 value={selectedService}
                 onChange={handleInputChange1}
               />
               <span>Services</span>
             </label>
 
-            {openService && (
+            {openService &&  (
               <ul className="modal1">
-                {filteredServices.length > 0
-                  ? filteredServices.map((service) => (
-                      <li
-                        key={travelSectors.id}
-                        className="modal11"
-                        onClick={() => handleFromSelection(service.name)}
-                      >
-                        {service.name}
-                      </li>
-                    ))
-                  : services.map((service) => (
-                      <li
-                        key={service.id}
-                        className="modal11"
-                        onClick={() => handleFromSelection(service.name)}
-                      >
-                        {service.name}
-                      </li>
-                    ))}
+                {selectedService.trim() === "" ? (
+                  services.map((service) => (
+                    <li
+                      key={service.id}
+                      className="modal11"
+                      onClick={() => handleServiceSelection(service.name)}
+                      onChange={handleInputChange1}
+                    >
+                      {service.name}
+                    </li>
+                  ))
+                ) : filteredServices.length > 0 ? (
+                  filteredServices.map((service) => (
+                    <li
+                      key={service.id}
+                      className="modal11"
+                      onClick={() => handleServiceSelection(service.name)}
+                    >
+                      {service.name}
+                    </li>
+                  ))
+                ) : (
+                  <li className="modal11">Not Found</li>
+                )}
               </ul>
             )}
           </div>
@@ -302,8 +338,8 @@ const Pranam = () => {
             <label className="label4">
               <input
                 type="text"
-                className="in"
-                onClick={() => setOpenSector(!openSector)}
+                className="in cursor_pointer"
+                onClick={handleSectorClick}
                 value={selectedSector}
                 onChange={handleInputChange2}
               />
@@ -312,25 +348,29 @@ const Pranam = () => {
 
             {openSector && (
               <ul className="modal2">
-                {filteredSectors.length > 0
-                  ? filteredSectors.map((sector) => (
-                      <li
-                        key={sector.id}
-                        className="modal22"
-                        onClick={() => handleSectorSelection(sector.name)}
-                      >
-                        {sector.name}
-                      </li>
-                    ))
-                  : travelSectors.map((sector) => (
-                      <li
-                        key={sector.id}
-                        className="modal22"
-                        onClick={() => handleSectorSelection(sector.name)}
-                      >
-                        {sector.name}
-                      </li>
-                    ))}
+                {selectedSector.trim() === "" ? (
+                  travelSectors.map((sector) => (
+                    <li
+                      key={sector.id}
+                      className="modal22"
+                      onClick={() => handleSectorSelection(sector.name)}
+                    >
+                      {sector.name}
+                    </li>
+                  ))
+                ) : filteredSectors.length > 0 ? (
+                  filteredSectors.map((sector) => (
+                    <li
+                      key={sector.id}
+                      className="modal22"
+                      onClick={() => handleSectorSelection(sector.name)}
+                    >
+                      {sector.name}
+                    </li>
+                  ))
+                ) : (
+                  <li className="modal22">Not Found</li>
+                )}
               </ul>
             )}
           </div>
@@ -339,39 +379,44 @@ const Pranam = () => {
             <label className="label4">
               <input
                 type="text"
-                className="in"
-                onClick={() => setOpenDestination(!openDestination)}
+                className="in cursor_pointer"
+                onClick={handleDestinationClick}
                 value={selectedDestination}
                 onChange={handleInputChange3}
               />
               <span>Destination</span>
             </label>
 
+            {/* Here */}
             {openDestination && (
               <ul className="modal2">
-                {filteredDestination.length > 0
-                  ? filteredDestination.map((destination) => (
-                      <li
-                        key={destination.id}
-                        className="modal22"
-                        onClick={() =>
-                          handleDestinationSelection(destination.name)
-                        }
-                      >
-                        {destination.name}
-                      </li>
-                    ))
-                  : destinations.map((destination) => (
-                      <li
-                        key={destination.id}
-                        className="modal22"
-                        onClick={() =>
-                          handleDestinationSelection(destination.name)
-                        }
-                      >
-                        {destination.name}
-                      </li>
-                    ))}
+                {selectedDestination.trim() === "" ? (
+                  destinations.map((destination) => (
+                    <li
+                      key={destination.id}
+                      className="modal22"
+                      onClick={() =>
+                        handleDestinationSelection(destination.name)
+                      }
+                    >
+                      {destination.name}
+                    </li>
+                  ))
+                ) : filteredDestination.length > 0 ? (
+                  filteredDestination.map((destination) => (
+                    <li
+                      key={destination.id}
+                      className="modal22"
+                      onClick={() =>
+                        handleDestinationSelection(destination.name)
+                      }
+                    >
+                      {destination.name}
+                    </li>
+                  ))
+                ) : (
+                  <li className="modal22">Not Found</li>
+                )}
               </ul>
             )}
           </div>
@@ -396,8 +441,8 @@ const Pranam = () => {
             <label className="label4">
               <input
                 type="text"
-                className="in"
-                onClick={() => setOpenOptions(!openOptions)}
+                className="in cursor_pointer"
+                onClick={handleGuestsClick}
                 value={options.adult + options.children + options.infants}
                 onChange={handleInputChange4}
               />
@@ -405,7 +450,7 @@ const Pranam = () => {
             </label>
 
             {openOptions && (
-              <div className="options">
+              <div className="options" id="soptions">
                 <div className="optionItem">
                   <span className="optionText">Adult (18+)</span>
                   <div className="optionCounter">
@@ -494,6 +539,7 @@ const Pranam = () => {
           <button type="submit" className="button1">
             Book
           </button>
+          <Toaster />
         </div>
       </div>
     </form>

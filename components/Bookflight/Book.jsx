@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 import { db } from "@/firebase/Firebase";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { Timestamp } from "firebase/firestore";
-
+import toast, { Toaster } from "react-hot-toast";
 const Book = () => {
   const router = useRouter();
 
@@ -35,9 +35,38 @@ const Book = () => {
 
   const [openClass, setOpenClass] = useState(false);
   const [selectedClass, setSelectedClass] = useState("");
+  const [filteredClass, setFilteredClass] = useState([]);
 
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedReturnDate, setSelectedReturnDate] = useState(null);
+
+  const handleFromClick = () => {
+    setOpenFrom(!openFrom);
+    setOpenTo(false);
+    setOpenOptions(false);
+    setOpenClass(false);
+  };
+
+  const handleToClick = () => {
+    setOpenFrom(false);
+    setOpenTo(!openTo);
+    setOpenOptions(false);
+    setOpenClass(false);
+  };
+
+  const handleOptionsClick = () => {
+    setOpenFrom(false);
+    setOpenTo(false);
+    setOpenOptions(!openOptions);
+    setOpenClass(false);
+  };
+
+  const handleClassClick = () => {
+    setOpenFrom(false);
+    setOpenTo(false);
+    setOpenOptions(false);
+    setOpenClass(!openClass);
+  };
 
   const [minReturnDate, setMinReturnDate] = useState(dayjs().add(0, "day"));
 
@@ -123,7 +152,12 @@ const Book = () => {
   };
 
   const handleInputChange4 = (e) => {
-    setSelectedClass(e.target.value);
+    const inputValue = e.target.value;
+    setSelectedClass(inputValue);
+    const filtered = seats.filter((t) =>
+      t.name.toLowerCase().includes(inputValue.toLowerCase())
+    );
+    setFilteredClass(filtered);
   };
 
   const From = [
@@ -187,7 +221,7 @@ const Book = () => {
       id: 15,
       name: "Norway",
     },
-  ]; 
+  ];
 
   const To = [
     {
@@ -278,23 +312,30 @@ const Book = () => {
       (t) => t.name.toLowerCase() === selectedTo.toLowerCase()
     );
 
+    const isValidClass = seats.some(
+      (s) => s.name.toLowerCase() === selectedClass.toLowerCase()
+    );
+
     if (selectedFrom.trim() === "") {
-      alert("Please select Departure location");
+      toast.error('Please select Departure location');
       return;
     } else if (selectedTo.trim() === "") {
-      alert("Please select Destination");
+      toast.error("Please select Destination");  
       return;
     } else if (selectedClass.trim() === "") {
-      alert("Please Select Class");
+      toast.error("Please Select Class");
       return;
     } else if (!isValidFrom) {
-      alert("Sorry we have not this departure location in our list");
+      toast.error("Sorry we have not this departure location in our list");
       return;
     } else if (!isValidTo) {
-      alert("Sorry we have not this destination in our list");
+      toast.error("Sorry we have not this destination in our list");
       return;
     } else if (selectedFrom == selectedTo) {
-      alert("Departure and Destination can not be same");
+      toast.error("Departure and Destination can not be same");
+      return;
+    } else if (!isValidClass) {
+      toast.error("Please enter valid class");
       return;
     }
 
@@ -331,6 +372,7 @@ const Book = () => {
 
       const tripsCollectionRef = collection(db, "trips");
       await addDoc(tripsCollectionRef, tripData);
+      toast.success("Flight Booked Successfully");
       console.log("Trip data saved successfully!");
 
       setSelectedClass("");
@@ -366,23 +408,23 @@ const Book = () => {
           />
         </label>
       </div>
+      <div className="main">
+        <div className="from">
+          <label className="label2">
+            <input
+              type="text"
+              className="i1"
+              onClick={handleFromClick}
+              value={selectedFrom}
+              onChange={handleInputChange1}
+            />
+            <span>From</span>
+          </label>
 
-      <div className="from">
-        <label className="label2">
-          <input
-            type="text"
-            className="i1"
-            onClick={() => setOpenFrom(!openFrom)}
-            value={selectedFrom}
-            onChange={handleInputChange1}
-          />
-          <span>From</span>
-        </label>
-
-        {openFrom && (
-          <ul className="bmodal1">
-            {filteredFrom.length > 0
-              ? filteredFrom.map((f) => (
+          {openFrom && (
+            <ul className="bmodal1">
+              {selectedFrom.trim() === "" ? (
+                From.map((f) => (
                   <li
                     key={f.id}
                     className="bmodal2"
@@ -391,7 +433,8 @@ const Book = () => {
                     {f.name}
                   </li>
                 ))
-              : From.map((f) => (
+              ) : filteredFrom.length > 0 ? (
+                filteredFrom.map((f) => (
                   <li
                     key={f.id}
                     className="bmodal2"
@@ -399,27 +442,29 @@ const Book = () => {
                   >
                     {f.name}
                   </li>
-                ))}
-          </ul>
-        )}
-      </div>
+                ))
+              ) : (
+                <li className="bmodal2">Not Found</li>
+              )}
+            </ul>
+          )}
+        </div>
+        <div className="from">
+          <label className="label2">
+            <input
+              type="text"
+              className="i1"
+              onClick={handleToClick}
+              value={selectedTo}
+              onChange={handleInputChange2}
+            />
+            <span>To</span>
+          </label>
 
-      <div className="from">
-        <label className="label2">
-          <input
-            type="text"
-            className="i1"
-            onClick={() => setOpenTo(!openTo)}
-            value={selectedTo}
-            onChange={handleInputChange2}
-          />
-          <span>To</span>
-        </label>
-
-        {openTo && (
-          <ul className="bmodal1">
-            {filteredTo.length > 0
-              ? filteredTo.map((t) => (
+          {openTo && (
+            <ul className="bmodal1">
+              {selectedTo.trim() === "" ? (
+                To.map((t) => (
                   <li
                     key={t.id}
                     className="bmodal2"
@@ -428,7 +473,8 @@ const Book = () => {
                     {t.name}
                   </li>
                 ))
-              : To.map((t) => (
+              ) : filteredTo.length > 0 ? (
+                filteredTo.map((t) => (
                   <li
                     key={t.id}
                     className="bmodal2"
@@ -436,11 +482,14 @@ const Book = () => {
                   >
                     {t.name}
                   </li>
-                ))}
-          </ul>
-        )}
+                ))
+              ) : (
+                <li className="bmodal2">Not Found</li>
+              )}
+            </ul>
+          )}
+        </div>
       </div>
-
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DemoContainer components={["DatePicker"]}>
           <div className="Dates">
@@ -464,13 +513,12 @@ const Book = () => {
           </div>
         </DemoContainer>
       </LocalizationProvider>
-
       <div className="from">
-        <label className="label2">
+        <label className="ilabel2">
           <input
             type="text"
-            onClick={() => setOpenOptions(!openOptions)}
-            className="i1"
+            onClick={handleOptionsClick}
+            className="i2"
             value={options.adult + options.children + options.infants}
             onChange={handleInputChange3}
           />
@@ -557,13 +605,12 @@ const Book = () => {
           </div>
         )}
       </div>
-
       <div className="from">
-        <label className="label2">
+        <label className="ilabel2">
           <input
             type="text"
-            className="i1"
-            onClick={() => setOpenClass(!openClass)}
+            className="i2"
+            onClick={handleClassClick}
             value={selectedClass}
             onChange={handleInputChange4}
           />
@@ -571,23 +618,37 @@ const Book = () => {
         </label>
 
         {openClass && (
-          <ul className="bmodal1">
-            {seats.map((seat) => (
-              <li
-                key={seat.id}
-                className="bmodal2"
-                onClick={() => handleClassSelection(seat.name)}
-              >
-                {seat.name}
-              </li>
-            ))}
+          <ul className="bmodal1" id="classBmodal">
+            {selectedClass.trim() === "" ? (
+              seats.map((f) => (
+                <li
+                  key={f.id}
+                  className="bmodal2"
+                  onClick={() => handleClassSelection(f.name)}
+                >
+                  {f.name}
+                </li>
+              ))
+            ) : filteredClass.length > 0 ? (
+              filteredClass.map((f) => (
+                <li
+                  key={f.id}
+                  className="bmodal2"
+                  onClick={() => handleClassSelection(f.name)}
+                >
+                  {f.name}
+                </li>
+              ))
+            ) : (
+              <li className="bmodal2">Not Found</li>
+            )}
           </ul>
         )}
       </div>
-
       <button className="button1" type="submit">
         Search
       </button>
+      <Toaster />
     </form>
   );
 };

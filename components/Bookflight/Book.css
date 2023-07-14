@@ -23,9 +23,11 @@
 }
 
 .i1 {
-  width: 50vw;
+  width: 40vw;
   border-radius: 1rem;
   padding: 0.5rem;
+  outline: 0;
+  border: 2px solid black;
 }
 
 .i1:hover {
@@ -54,8 +56,13 @@
 }
 
 .d1 {
-  width: 50vw;
+  width: 81vw;
 }
+
+.main{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;}
 
 .from{
   position: relative;
@@ -78,16 +85,16 @@
 .options {
   z-index: 2;
   position: absolute;
-  top: 50px;
+  top: 3.5rem;
   background-color: white;
   color: gray;
   border-radius: 5px;
   -webkit-box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
   box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
+  width: 81vw;
 }
 
 .optionItem {
-  width: 200px;
   display: flex;
   justify-content: space-between;
   margin: 10px;
@@ -126,12 +133,10 @@
   max-height: 10rem;
   overflow: scroll;
   left: 0%;
-  min-width: 15.625rem;
+  min-width: 40vw;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
   color: black;
-  border-radius: 2rem;
-
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
     0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),
@@ -155,17 +160,15 @@
 
 .label2 {
   position: relative;
-  width: 50vw;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-
 }
 
 .label2 input{
-  width: 50vw;
+  width: 40vw;
   padding: 15px;
   background-color: white;
   border-radius: 5px;
-  outline: none;
+  outline: 0;
+  border: 2px solid black;
   color: black;
   font-size: 1em;
 }
@@ -189,11 +192,57 @@
     background: white;
 }
 
+.ilabel2 {
+  position: relative;
+}
+
+.ilabel2 input{
+  width: 81vw;
+  padding: 15px;
+  background-color: white;
+  border-radius: 5px;
+  outline: 0;
+  border: 2px solid black;
+  color: black;
+  font-size: 1em;
+}
+
+.ilabel2 span{
+  position: absolute;
+  left: 0;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 1em;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.ilabel2 input:valid ~ span,
+.ilabel2 input:focus ~ span
+{
+    color: black;
+    transform: translateX(12px) translateY(-10px);
+    font-size: 1rem;
+    padding: 0 10px;
+    background: white;
+}
+
 .button1{
-  width: 50vw;
+  width: 81vw;
   padding: 1rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
+  outline: 0;
+  border: 2px solid black;
   background-color: black;
   color: white;
+}
+
+#classBmodal{
+  min-width: 81vw;
+}
+
+@media (max-width: 992px){
+  .options{
+  left: 0rem;
+  }
 }
 
