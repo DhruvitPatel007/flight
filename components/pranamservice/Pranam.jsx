@@ -425,7 +425,7 @@ const Pranam = () => {
         <div className="container3">
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DemoContainer components={["DatePicker"]}>
-              <div className="Dates">
+              <div className="D">
                 <DatePicker
                   label="Date"
                   className="pd1"
