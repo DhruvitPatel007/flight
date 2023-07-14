@@ -85,6 +85,7 @@
     margin-top: 2vh;
   }
 
+
   .sb1 {
     padding: 0.5rem 0.5rem;
     font-family: "Courier New", Courier, monospace;
@@ -93,22 +94,24 @@
     color: white;
     font-size: 1rem;
     font-weight: 700;
+    max-width: 50vw;
   }
 
   .sb2 {
     padding: 0.5rem 0.5rem;
     font-family: "Courier New", Courier, monospace;
     position: absolute;
-    top: 5rem;
+    top: 6rem;
     font-size: 1rem;
     color: white;
+    max-width: 60vw;
   }
 
   .sb3 {
     padding: 1.563rem 2.5rem;
     font-family: "Courier New", Courier, monospace;
     position: absolute;
-    left: 3.625rem;
+    /* left: 3.625rem; */
     bottom: 13.75rem;
     top: 18.75rem;
     color: black;
@@ -124,6 +127,8 @@
   .sbimg {
     object-fit: cover;
     grid-auto-rows: auto;
+    height: 40vh;
+    width: 100vw;
   }
 
   /* Navigation Footer Only for mobile */

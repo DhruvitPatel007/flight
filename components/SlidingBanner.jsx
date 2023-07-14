@@ -12,20 +12,20 @@ const SlidingBanner = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const customArrowStyles = {
-    position: 'absolute',
-    top: '50%',
-    transform: 'translateY(-50%)',
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%)",
     zIndex: 2,
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
-    backdropFilter: 'blur(5px)', 
-    border: '0px solid white',
-    color: 'white',
-    fontSize: '24px',
-    cursor: 'pointer',
-    outline: 'none',
-    padding: '14px',
-    margin: '10px',
-    borderRadius: '30%'
+    backgroundColor: "rgba(0, 0, 0, 0.3)",
+    backdropFilter: "blur(5px)",
+    border: "0px solid white",
+    color: "white",
+    fontSize: "24px",
+    cursor: "pointer",
+    outline: "none",
+    padding: "14px",
+    margin: "10px",
+    borderRadius: "30%",
   };
 
   const mediaQuery = "@media (max-width: 768px)";
@@ -35,8 +35,6 @@ const SlidingBanner = () => {
     margin: "5px",
     borderRadius: "20%",
   };
-
-
 
   const slides = [
     {
@@ -48,7 +46,7 @@ const SlidingBanner = () => {
     },
     {
       id: 2,
-      title: "Assured cabs for your airport travel!",
+      title: "Assured cabs",
       subtitle: "Get 1.5% Reward Points on every transaction",
       imageUrl:
         "https://sa.adanione.com/-/media/Project/Campaigns/Valentine-s-Day/CabBooking/Web_cab-Booking-page.jpg",
@@ -70,84 +68,85 @@ const SlidingBanner = () => {
     return () => clearInterval(intervalId);
   }, [slides.length]);
 
-
   const customDotStyles = {
-    listStyle: 'none',
-    display: 'inline-block',
-    width: '10px',
-    height: '10px',
-    margin: '0 5px',
-    borderRadius: '50%',
-    background: 'rgba(255, 255, 255, 0.5)',
-    cursor: 'pointer',
-    outline: 'none',
+    listStyle: "none",
+    display: "inline-block",
+    width: "10px",
+    height: "10px",
+    margin: "0 5px",
+    borderRadius: "50%",
+    background: "rgba(255, 255, 255, 0.5)",
+    cursor: "pointer",
+    outline: "none",
   };
 
   const customActiveDotStyles = {
     ...customDotStyles,
-    background: 'white',
+    background: "white",
   };
 
   return (
     <div className="sbcontainer">
-          <Carousel
-      showThumbs={false}
-      showStatus={false}
-      itemsToShow={1}
-      autoPlay={true}
-      renderArrowPrev={(onClickHandler, hasPrev, label) =>
-        hasPrev && (
-          <button
-            type="button"
-            onClick={onClickHandler}
-            title={label}
-            style={{
-              ...customArrowStyles,
-              left: 0,
-              [mediaQuery]: mediaQueryStyles,
-            }}
-          >
-            {"<"} {/* Replace with your custom icon */}
-          </button>
-        )
-      }
-      renderArrowNext={(onClickHandler, hasNext, label) =>
-        hasNext && (
-          <button
-            type="button"
-            onClick={onClickHandler}
-            title={label}
-            style={{ ...customArrowStyles, right: 0 }}
-          >
-            {">"} {/* Replace with your custom icon */}
-          </button>
-        )
-      }
-      renderIndicator={(onClickHandler, isSelected, index, label) => {
-        const dotStyles = isSelected ? customActiveDotStyles : customDotStyles;
-        return (
-          <li
-            key={index}
-            style={dotStyles}
-            onClick={onClickHandler}
-            role="button"
-            tabIndex={0}
-            title={`${label}: ${index}`}
-            aria-label={`${label} ${index}`}
-          />
-        );
-      }}
-    >
-      {slides.map((slide, index) => (
-        <div key={slide.id}>
-          <div className="sb1 text_transform_uppercase">{slide.title}</div>
-          <div className="sb2 text_transform_uppercase cursor_pointer">
-            {slide.subtitle}
+      <Carousel
+        showThumbs={false}
+        showStatus={false}
+        itemsToShow={1}
+        autoPlay={true}
+        renderArrowPrev={(onClickHandler, hasPrev, label) =>
+          hasPrev && (
+            <button
+              type="button"
+              onClick={onClickHandler}
+              title={label}
+              style={{
+                ...customArrowStyles,
+                left: 0,
+                [mediaQuery]: mediaQueryStyles,
+              }}
+            >
+              {"<"} {/* Replace with your custom icon */}
+            </button>
+          )
+        }
+        renderArrowNext={(onClickHandler, hasNext, label) =>
+          hasNext && (
+            <button
+              type="button"
+              onClick={onClickHandler}
+              title={label}
+              style={{ ...customArrowStyles, right: 0 }}
+            >
+              {">"} {/* Replace with your custom icon */}
+            </button>
+          )
+        }
+        renderIndicator={(onClickHandler, isSelected, index, label) => {
+          const dotStyles = isSelected
+            ? customActiveDotStyles
+            : customDotStyles;
+          return (
+            <li
+              key={index}
+              style={dotStyles}
+              onClick={onClickHandler}
+              role="button"
+              tabIndex={0}
+              title={`${label}: ${index}`}
+              aria-label={`${label} ${index}`}
+            />
+          );
+        }}
+      >
+        {slides.map((slide, index) => (
+          <div key={slide.id}>
+              <div className="sb1 text_transform_uppercase">{slide.title}</div>
+              <div className="sb2 text_transform_uppercase cursor_pointer">
+                {slide.subtitle}
+              </div>
+            <img src={slide.imageUrl} className="sbimg" />
           </div>
-          <img src={slide.imageUrl} className="sbimg" />
-        </div>
-      ))}
-    </Carousel>
+        ))}
+      </Carousel>
     </div>
   );
 };
