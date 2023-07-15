@@ -11,30 +11,8 @@ import "../styles/mobile.css";
 const SlidingBanner = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const customArrowStyles = {
-    position: "absolute",
-    top: "50%",
-    transform: "translateY(-50%)",
-    zIndex: 2,
-    backgroundColor: "rgba(0, 0, 0, 0.3)",
-    backdropFilter: "blur(5px)",
-    border: "0px solid white",
-    color: "white",
-    fontSize: "24px",
-    cursor: "pointer",
-    outline: "none",
-    padding: "14px",
-    margin: "10px",
-    borderRadius: "30%",
-  };
-
-  const mediaQuery = "@media (max-width: 768px)";
-  const mediaQueryStyles = {
-    fontSize: "10px",
-    padding: "10px",
-    margin: "5px",
-    borderRadius: "20%",
-  };
+  const customDotStyles = "custom-dot";
+  const customActiveDotStyles = "custom-active-dot";
 
   const slides = [
     {
@@ -68,23 +46,6 @@ const SlidingBanner = () => {
     return () => clearInterval(intervalId);
   }, [slides.length]);
 
-  const customDotStyles = {
-    listStyle: "none",
-    display: "inline-block",
-    width: "10px",
-    height: "10px",
-    margin: "0 5px",
-    borderRadius: "50%",
-    background: "rgba(255, 255, 255, 0.5)",
-    cursor: "pointer",
-    outline: "none",
-  };
-
-  const customActiveDotStyles = {
-    ...customDotStyles,
-    background: "white",
-  };
-
   return (
     <div className="sbcontainer">
       <Carousel
@@ -98,13 +59,12 @@ const SlidingBanner = () => {
               type="button"
               onClick={onClickHandler}
               title={label}
+              className="custom-arrow"
               style={{
-                ...customArrowStyles,
                 left: 0,
-                [mediaQuery]: mediaQueryStyles,
               }}
             >
-              {"<"} {/* Replace with your custom icon */}
+              {"<"}
             </button>
           )
         }
@@ -114,9 +74,10 @@ const SlidingBanner = () => {
               type="button"
               onClick={onClickHandler}
               title={label}
-              style={{ ...customArrowStyles, right: 0 }}
+              className="custom-arrow"
+              style={{ right: 0 }}
             >
-              {">"} {/* Replace with your custom icon */}
+              {">"}
             </button>
           )
         }
@@ -127,7 +88,7 @@ const SlidingBanner = () => {
           return (
             <li
               key={index}
-              style={dotStyles}
+              className={dotStyles}
               onClick={onClickHandler}
               role="button"
               tabIndex={0}
@@ -139,10 +100,10 @@ const SlidingBanner = () => {
       >
         {slides.map((slide, index) => (
           <div key={slide.id}>
-              <div className="sb1 text_transform_uppercase">{slide.title}</div>
-              <div className="sb2 text_transform_uppercase cursor_pointer">
-                {slide.subtitle}
-              </div>
+            <div className="sb1 text_transform_uppercase">{slide.title}</div>
+            <div className="sb2 text_transform_uppercase cursor_pointer">
+              {slide.subtitle}
+            </div>
             <img src={slide.imageUrl} className="sbimg" />
           </div>
         ))}

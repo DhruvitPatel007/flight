@@ -120,6 +120,24 @@
   }
 
   /* SlidingBanner */
+
+  .custom-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    border: 0px solid white;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    outline: none;
+    padding: 14px;
+    margin: 10px;
+    border-radius: 30%;
+  }
+
   .sb1 {
     padding: 25px 40px;
     font-family: "Courier New", Courier, monospace;
@@ -129,6 +147,30 @@
     color: white;
     font-size: 1.875rem;
     font-weight: 700;
+  }
+
+  .custom-dot {
+    list-style: none;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    outline: none;
+  }
+
+  .custom-active-dot {
+    list-style: none;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    outline: none;
   }
 
   .sb2 {
