@@ -21,7 +21,7 @@ const Nav = () => {
           <div className="nav3">
             <Link href="/">
               <Image
-                src="/assets/mainlogo.png"
+                src="/assets/mainlogo.webp"
                 alt="Logo"
                 width={70}
                 height={70}
