@@ -83,7 +83,7 @@ const cards = [
 const Airportscard = () => {
   return (
     <section className="ac7">
-      <div className="ac8">Our Airports</div>
+      <div className="ac8 f-color bold">Our Airports</div>
 
       <Carousel responsive={responsive}>
         {cards.map((card, key) => (
@@ -93,11 +93,11 @@ const Airportscard = () => {
                 <img src={card.image} alt="Image" />
               </div>
               <div className="ac3">
-                <div className="ac4">
+                <div className="ac4 fi-color bold">
                   <h3>{card.title}</h3>
                 </div>
 
-                <div className="ac5">
+                <div className="ac5 fi-color">
                   <p>{card.subTitle}</p>
                 </div>
               </div>

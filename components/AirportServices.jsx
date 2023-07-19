@@ -77,13 +77,13 @@ const AirportServices = () => {
   return (
     <>
       <section className="as1">
-        <div className="as2">Airport Services</div>
+        <div className="as2 f-color bold">Airport Services</div>
         <div className="as3 scrolling">
           {services.map((service, key) => (
             <Link href={`${service.url}`} key={service.id}>
             <div className="as4">
               <img src={service.imageUrl} className="asimg1" alt="img" />
-              <p className="as5">{service.title}</p>
+              <p className="as5 white">{service.title}</p>
             </div>
             </Link>
             

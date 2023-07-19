@@ -72,9 +72,9 @@ const Menu = ({ showCatMenu, setShowCatMenu }) => {
                   onMouseEnter={() => handleMouseEnter(item.subMenuData)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <Link href={`${item.url}`}>{item.name}</Link>
+                  <Link href={`${item.url}`} className="t-color bold">{item.name}</Link>
                   {showCatMenu && currentSubMenuData === item.subMenuData &&  (
-                    <ul className="navMenu4">
+                    <ul className="navMenu4 t-color">
                       {currentSubMenuData.map((submenu) => {
                         return (
                           <Link
@@ -90,14 +90,14 @@ const Menu = ({ showCatMenu, setShowCatMenu }) => {
                   )}
                 </li>
               ) : (
-                <li className="navMenu6">
+                <li className="navMenu6 t-color bold">
                   <Link href={item.url}>{item.name}</Link>
                 </li>
               )}
             </React.Fragment>
           );
         })}
-        <div className="navMenu6">
+        <div className="navMenu6 white">
           <BiCart size={30} />
         </div>
       </ul>

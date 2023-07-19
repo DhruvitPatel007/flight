@@ -78,7 +78,7 @@
 
   .s3 {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     overflow: scroll;
     justify-content: space-between;
     padding: 1.2rem;

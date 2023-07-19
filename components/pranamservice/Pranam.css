@@ -1,10 +1,15 @@
+.Pranam-Form{
+  background-color: #66D7EB;
+
+}
+
 .container1 {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: auto;
-  /* gap: 1rem; */
+  
 }
 
 .container2 {
@@ -38,12 +43,11 @@
 .label3 input {
   width: 100%;
   padding: 15px;
-  background-color: white;
+  background-color: #66D7EB;
   outline: 0;
   border: 2px solid black;
   border-radius: 5px;
   outline: none;
-  color: black;
   font-size: 1rem;
 }
 
@@ -53,7 +57,6 @@
   padding: 10px;
   pointer-events: none;
   font-size: 1em;
-  color: rgba(255, 255, 255, 0.25);
 }
 
 .field1 .label3 input[type="text"] {
@@ -62,11 +65,10 @@
 
 .label3 input:valid ~ span,
 .label3 input:focus ~ span {
-  color: black;
   transform: translateX(12px) translateY(-7px);
   font-size: 1rem;
   padding: 0 10px;
-  background: white;
+  background: #66D7EB;
 }
 
 .label4 {
@@ -77,10 +79,9 @@
   padding: 15px;
   outline: 0;
   border: 2px solid black;
-  background-color: white;
+  background-color: #66D7EB;
   border-radius: 5px;
   outline: none;
-  color: black;
   font-size: 1rem;
 }
 
@@ -90,7 +91,6 @@
   padding: 10px;
   pointer-events: none;
   font-size: 1em;
-  color: rgba(255, 255, 255, 0.25);
 }
 
 .field2 .label4 input[type="text"] {
@@ -104,11 +104,10 @@
 
 .label4 input:valid ~ span,
 .label4 input:focus ~ span {
-  color: black;
   transform: translateX(12px) translateY(23px);
   font-size: 1rem;
   padding: 0 10px;
-  background: white;
+  background: #66D7EB;
 }
 
 .in {
@@ -124,7 +123,6 @@
   min-width: 81vw;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
-  color: black;
 
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
     0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -157,7 +155,6 @@
   min-width: 40vw;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
-  color: black;
 
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
     0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -185,7 +182,6 @@
   position: absolute;
   top: 5.5rem;
   background-color: white;
-  color: gray;
   border-radius: 5px;
   -webkit-box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
   box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
@@ -206,16 +202,15 @@
   align-items: center;
   gap: 1vw;
   font-size: 0.8rem;
-  color: black;
 }
 
 .optionCounterButton {
   width: 30px;
   height: 30px;
   border: 1px solid #0071c2;
-  color: #0071c2;
+  color: white;
   cursor: pointer;
-  background-color: white;
+  background-color: #0E1E2B;
 }
 
 .optionCounterButton:disabled {
@@ -231,12 +226,11 @@
   margin-top: 2rem;
 }
 .button1 {
-  width: 81vw;
+  width: 10rem;
   outline: 0;
   border: 1px solid black;
   padding: 1rem;
-  background-color: black;
-  color: white;
+  margin-bottom: 2rem;
   border-radius: 0.5rem;
   font-size: large;
 }

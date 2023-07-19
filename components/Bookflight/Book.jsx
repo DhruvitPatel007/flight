@@ -386,7 +386,7 @@ const Book = () => {
   };
 
   return (
-    <form action="" className="booking-form" onSubmit={handleSubmit}>
+    <form action="" className="booking-form fi-color" onSubmit={handleSubmit}>
       <div className="booking1">Book Flights</div>
       <div className="radio-group">
         <label className="label1">
@@ -494,7 +494,7 @@ const Book = () => {
         <DemoContainer components={["DatePicker"]}>
           <div className="Dates">
             <DatePicker
-              label="Departurer"
+              label="Departure"
               className="d1"
               minDate={dayjs()}
               value={selectedDate}
@@ -645,7 +645,7 @@ const Book = () => {
           </ul>
         )}
       </div>
-      <button className="button1" type="submit">
+      <button className="button1 fourth-color t-color" type="submit">
         Search
       </button>
       <Toaster />

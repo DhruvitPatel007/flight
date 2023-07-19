@@ -60,10 +60,10 @@ const Services = () => {
   return (
     <div className="container1">
       <div className="container2">
-        <div className="s1">Services</div>
+        <div className="s1 f-color bold">Services</div>
         <Searchbar1 className="searchbar1" handleSearch={handleSearch} />
       </div>
-      <div className="s2">Popular Services</div>
+      <div className="s2 f-color">Popular Services</div>
 
       <section>
         <div className="s3 scrolling">
@@ -71,7 +71,7 @@ const Services = () => {
             <Link href={`${service.url}`} key={key}>
               <div className="as4">
                 <img src={service.imageUrl} className="asimg1" alt="img" />
-                <p className="as5">{service.title}</p>
+                <p className="as5 t-color">{service.title}</p>
               </div>
             </Link>
           ))}
@@ -80,39 +80,39 @@ const Services = () => {
 
       <div className="container3">
         <div className="container2">
-          <div className="s1">All Services</div>
+          <div className="s1 f-color">All Services</div>
         </div>
-        <div className="s2">Booking</div>
+        <div className="s2 f-color">Booking</div>
         <section>
           <div className="s3 scrolling">
             {filteredServices.map((service, key) => (
               <div key={key} className="as4">
                 <img src={service.imageUrl} className="asimg1" alt="img" />
-                <p className="as5">{service.title}</p>
+                <p className="as5 t-color">{service.title}</p>
               </div>
             ))}
           </div>
         </section>
 
-        <div className="s2">Experience</div>
+        <div className="s2 f-color">Experience</div>
         <section>
           <div className="s3 scrolling">
             {filteredServices.map((service, key) => (
               <div key={key} className="as4">
                 <img src={service.imageUrl} className="asimg1" alt="img" />
-                <p className="as5">{service.title}</p>
+                <p className="as5 t-color">{service.title}</p>
               </div>
             ))}
           </div>
         </section>
 
-        <div className="s2">Transportation</div>
+        <div className="s2 f-color">Transportation</div>
         <section>
           <div className="s3 scrolling">
             {filteredServices.map((service, key) => (
               <div key={key} className="as4">
                 <img src={service.imageUrl} className="asimg1" alt="img" />
-                <p className="as5">{service.title}</p>
+                <p className="as5 t-color">{service.title}</p>
               </div>
             ))}
           </div>

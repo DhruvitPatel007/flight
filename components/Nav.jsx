@@ -13,7 +13,7 @@ const Nav = () => {
   return (
     <>
       <div
-        className="nav1"
+        className="nav1 first-color"
       >
         <div
           className="nav2"
@@ -32,7 +32,7 @@ const Nav = () => {
 
           <div className="nav4">
             <Menu showCatMenu={showCatMenu} setShowCatMenu={setShowCatMenu} />
-            <div className="nav5">
+            <div className="nav5 white">
               <BsPerson size={30} />
             </div>
           </div>

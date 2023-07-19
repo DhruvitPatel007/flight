@@ -149,3 +149,53 @@ justify-content: left
   }
 }
 
+
+.first-color { 
+	background: #233142; 
+}
+	
+.second-color { 
+	background: #455d7a; 
+}
+
+.third-color { 
+	background: #1C3D52; 
+}
+
+.fourth-color { 
+	background: #0E1E2B; 
+}
+
+.f-color{
+	color: #66D7EB;
+}
+
+.s-color{
+	color: #455d7a; 
+  
+}
+
+.t-color{
+	color: #f95959; 
+
+}
+
+.fo-color{
+	color: #e3e3e3; 
+}
+
+.fi-color{
+  color: #0E1E2B;
+}
+
+.white{
+  color: white;
+}
+
+.bold{
+  font-weight: 700;
+}
+
+.textstyle{
+  font-family:'Be Vietnam Pro', sans-serif;
+}

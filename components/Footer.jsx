@@ -7,29 +7,25 @@ const Footer = () => {
     {
       id: 1,
       title: "Help & Support",
-      subTitle1: "Contact us for any Queries, Service",
-      subTitle2: "Request, Complaints",
+      subTitle1: "Contact us for any Queries, Service Request, Complaints",
     },
 
     {
       id: 2,
       title: "Chat Support",
-      subTitle1: "Looking for something? We are",
-      subTitle2: "here for you. Ask away!",
+      subTitle1: "Looking for something? We are here for you. Ask away!",
     },
 
     {
       id: 3,
       title: "FAQs",
-      subTitle1: "All your frequently aksed questions",
-      subTitle2: "answered in one place",
+      subTitle1: "All your frequently aksed questions answered in one place",
     },
 
     {
       id: 4,
       title: "Download App",
-      subTitle1: "Love our App? Spread the word by",
-      subTitle2: "rating us",
+      subTitle1: "Love our App? Spread the word by rating us",
     },
   ];
 
@@ -129,13 +125,12 @@ const Footer = () => {
       <div className="f1">
         {data.map((item, key) => (
           <div className="f2 cursor_pointer" key={item.id}>
-            <span className="f3">{item.title}</span>
-            <span className="f4">{item.subTitle1}</span>
-            <span className="f4">{item.subTitle2}</span>
+            <span className="f3 t-color bold">{item.title}</span>
+            <span className="f4 white">{item.subTitle1}</span>
           </div>
         ))}
       </div>
-      <div className="f44">
+      <div className="f44 fi-color">
         <div className="f5">
           {data1.map((item, key) => (
             <div className="f6" key={item.id}>
@@ -152,7 +147,7 @@ const Footer = () => {
 
       <div className="f99">
         <div className="f10">
-          <span>Private Policy</span>
+          <span>Privacy Policy</span>
           <span>All Rigts Reserved for Booking @2023</span>
           <span>Terms & Conditions</span>
         </div>

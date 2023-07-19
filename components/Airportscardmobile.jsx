@@ -62,7 +62,7 @@ const Airportscardmobile = () => {
 
   return (
     <div className="acm1 scrolling">
-      <div className="acm2">Our Airports</div>
+      <div className="acm2 f-color">Our Airports</div>
 
       <div className="acm3">
         {cards.map((card, key) => (

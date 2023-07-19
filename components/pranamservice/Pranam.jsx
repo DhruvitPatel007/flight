@@ -285,7 +285,7 @@ const Pranam = () => {
   };
 
   return (
-    <form action="" className="Pranam-Form" onSubmit={handleSubmit}>
+    <form action="" className="Pranam-Form fi-color" onSubmit={handleSubmit}>
       <div className="container1">
         <h1>Pranam Service</h1>
 
@@ -538,7 +538,7 @@ const Pranam = () => {
         </div>
 
         <div className="book">
-          <button type="submit" className="button1">
+          <button type="submit" className="button1 t-color fourth-color">
             Book
           </button>
           <Toaster />
