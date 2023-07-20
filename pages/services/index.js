@@ -1,7 +1,4 @@
-"use client";
 import React from "react";
-import "./services.css";
-import "@/styles/tab.css";
 import Searchbar1 from "@/components/Searchbar1";
 import { useState } from "react";
 import Link from "next/link";

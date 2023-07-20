@@ -1,5 +1,4 @@
 import React from "react";
-import "./Searchbar1.css";
 
 const Searchbar1 = ({handleSearch}) => {
   return (

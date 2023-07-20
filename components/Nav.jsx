@@ -1,11 +1,9 @@
-"use client";
+
 import Link from "next/link";
 import React, { useState } from "react";
 import Menu from "./Menu";
 import { BsPerson } from "react-icons/bs";
 import Image from "next/image";
-import "../styles/mobile.css"
-import "../styles/tab.css"
 
 const Nav = () => {
   const [showCatMenu, setShowCatMenu] = useState(false);

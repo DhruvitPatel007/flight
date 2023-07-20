@@ -1,7 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import "../styles/tab.css";
-import "../styles/mobile.css";
 
 const AirportServices = () => {
   const services = [
@@ -68,7 +66,7 @@ const AirportServices = () => {
       title: "View All",
       imageUrl:
         "https://as2.ftcdn.net/v2/jpg/05/39/68/47/1000_F_539684784_Ls7ShJUOQOmLT4S3EQMYYkBsTpsHFITu.jpg",
-      url: "/services",
+      url:"/services",
     },
   ];
 

@@ -1,12 +1,10 @@
-"use client";
+
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import Link from "next/link";
 import { useState } from "react";
 import { useEffect } from "react";
-import "../styles/tab.css";
-import "../styles/mobile.css";
 
 const SlidingBanner = () => {
   const [activeIndex, setActiveIndex] = useState(0);

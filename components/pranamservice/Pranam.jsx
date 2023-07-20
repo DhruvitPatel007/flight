@@ -1,7 +1,5 @@
-"use client";
 import { useState, useEffect } from "react";
 import React from "react";
-import "@/components/pranamservice/Pranam.css";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";

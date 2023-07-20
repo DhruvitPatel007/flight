@@ -1,7 +1,4 @@
 import React from "react";
-import "../styles/tab.css";
-import "../styles/mobile.css";
-
 
 const Banner = () => {
   const banners = [

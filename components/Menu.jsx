@@ -1,9 +1,7 @@
-"use client";
+
 import React from "react";
 import Link from "next/link";
 import { BiCart } from "react-icons/bi";
-import "../styles/mobile.css";
-import "../styles/tab.css";
 import { useState } from "react";
 
 const data = [

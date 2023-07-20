@@ -1,4 +1,3 @@
-"use client";
 import React, { useState } from "react";
 import Link from "next/link";
 import { BiCart } from "react-icons/bi";
@@ -6,8 +5,6 @@ import { AiOutlineHome } from "react-icons/ai";
 import { CgMenuGridR } from "react-icons/cg";
 import { MdMenuBook } from "react-icons/md";
 import { FiMoreHorizontal } from "react-icons/fi";
-import "../styles/tab.css";
-import "../styles/mobile.css";
 
 const Navfoot = () => {
   const [activeItem, setActiveItem] = useState(1);
