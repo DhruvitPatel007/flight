@@ -25,9 +25,8 @@ export default function App({ Component, pageProps }) {
 
   return <>
     <Head>
-      <title>Trendy Shop</title>
+      <title>Final Flight Booking</title>
     </Head>
-    
       <Nav />
       <Component {...pageProps} darkTheme={darkTheme}/>
       <Footer />

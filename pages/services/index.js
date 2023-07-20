@@ -55,8 +55,8 @@ const Services = () => {
     setSearchValue(event.target.value);
   };
   return (
-    <div className="container1">
-      <div className="container2">
+    <div className="contain1">
+      <div className="contain2">
         <div className="s1 white bold">Services</div>
         <Searchbar1 className="searchbar1" handleSearch={handleSearch} />
       </div>
@@ -76,7 +76,7 @@ const Services = () => {
           </div>
         </section>
   
-        <div className="container3">
+        <div className="contain3">
           <div className="container2">
             <div className="s1 white">All Services</div>
           </div>

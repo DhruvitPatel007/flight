@@ -1,18 +1,18 @@
-.searchbar1 {
+.search1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.searchbar2 {
+.search2 {
   /* position: relative; */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.searchbar3 {
+.search3 {
   width: 25vw;
   height: 2.5rem;
   padding: 8px 16px;
