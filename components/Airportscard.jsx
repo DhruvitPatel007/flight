@@ -85,7 +85,7 @@ const Airportscard = () => {
     <section className="ac7">
       <div className="ac8 f-color bold">Our Airports</div>
 
-      <Carousel responsive={responsive}>
+      <Carousel responsive={responsive} className="ac9">
         {cards.map((card, key) => (
           <div className="ac6 cursor_pointer" key={card.id}>
             <div className="ac1">
