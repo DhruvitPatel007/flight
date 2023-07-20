@@ -22,15 +22,9 @@ const SlidingBanner = () => {
       imageUrl:
         "https://sa.adanione.com/-/media/Project/Campaigns/Valentine-s-Day/Offers/AU-Offers/Home_Page_Hero_Flight_Booking_-AU_Bank.jpg",
     },
+    
     {
       id: 2,
-      title: "Assured cabs",
-      subtitle: "Get 1.5% Reward Points on every transaction",
-      imageUrl:
-        "https://sa.adanione.com/-/media/Project/Campaigns/Valentine-s-Day/CabBooking/Web_cab-Booking-page.jpg",
-    },
-    {
-      id: 3,
       title: "Fly with UPI",
       subtitle: "Use CODE UPI450 & get flat 450 off on domestic flights",
       imageUrl:
@@ -101,10 +95,10 @@ const SlidingBanner = () => {
       >
         {slides.map((slide, index) => (
           <div key={slide.id}>
-            <div className="sb1 text_transform_uppercase">{slide.title}</div>
+            {/* <div className="sb1 text_transform_uppercase">{slide.title}</div>
             <div className="sb2 text_transform_uppercase cursor_pointer">
               {slide.subtitle}
-            </div>
+            </div> */}
             <img src={slide.imageUrl} className="sbimg" />
           </div>
         ))}
