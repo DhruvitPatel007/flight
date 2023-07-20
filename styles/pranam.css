@@ -270,6 +270,10 @@
   .modal1 {
     min-width: 81vw;
   }
+
+  .pheading{
+    margin-top: 5rem;
+  }
 }
 
 @media (max-width: 391px){

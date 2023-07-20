@@ -285,7 +285,7 @@ const Pranam = () => {
   return (
     <form action="" className="Pranam-Form fi-color" onSubmit={handleSubmit}>
       <div className="container1">
-        <h1>Pranam Service</h1>
+        <h1 className="pheading">Pranam Service</h1>
 
         <div className="container2">
           <div className="field1">

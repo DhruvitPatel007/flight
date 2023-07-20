@@ -3,6 +3,7 @@
   padding: 5vw;
   text-align: center;
   line-height: 2.4rem;
+  color: white;
 }
 @media (max-width: 992px){
 .message{
