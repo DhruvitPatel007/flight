@@ -93,7 +93,7 @@ const SlidingBanner = () => {
       >
         {slides.map((slide, index) => (
           <div key={slide.id}>
-            <div className="sb1 text_transform_uppercase">{slide.title}</div>
+            {/* <div className="sb1 text_transform_uppercase">{slide.title}</div> */}
             {/* <div className="sb2 text_transform_uppercase cursor_pointer">
               {slide.subtitle}
             </div> */}

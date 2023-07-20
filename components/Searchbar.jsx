@@ -27,11 +27,11 @@ const Searchbar = () => {
 
   return (
     <>
-      <section className="searchbar1">
-        <div className="searchbar2">
+      <section className="msearchbar1">
+        <div className="msearchbar2">
           <input
             type="text"
-            className={`searchbar3 ${transitionClass}`}
+            className={`msearchbar3 ${transitionClass}`}
             placeholder={placeholders[currentPlaceholderIndex]}
           />
         </div>
