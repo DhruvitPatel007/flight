@@ -52,7 +52,8 @@ const SlidingBanner = () => {
         showThumbs={false}
         showStatus={false}
         itemsToShow={1}
-        autoPlay={true}
+        autoPlay={false}
+        selectedItem={activeIndex}
         renderArrowPrev={(onClickHandler, hasPrev, label) =>
           hasPrev && (
             <button

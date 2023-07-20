@@ -129,7 +129,6 @@
 
   .sb1 {
     padding: 0.5rem 0.5rem;
-    font-family: "Courier New", Courier, monospace;
     position: absolute;
     top: 2rem;
     color: white;
@@ -140,7 +139,6 @@
 
   .sb2 {
     padding: 0.5rem 0.5rem;
-    font-family: "Courier New", Courier, monospace;
     position: absolute;
     top: 6rem;
     font-size: 1rem;
@@ -150,7 +148,6 @@
 
   .sb3 {
     padding: 1.563rem 2.5rem;
-    font-family: "Courier New", Courier, monospace;
     position: absolute;
     /* left: 3.625rem; */
     bottom: 13.75rem;
@@ -238,7 +235,6 @@
 
   .as5 {
     margin-top: 0.75rem;
-    font-family: Arial, Helvetica, sans-serif;
   }
 
   /* Banner Only Mobile */
@@ -288,7 +284,6 @@
     font-size: 1.25rem;
     font-weight: 600;
     padding: 0.625rem;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     margin-left: 0rem;
   }
 

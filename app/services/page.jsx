@@ -60,64 +60,68 @@ const Services = () => {
   return (
     <div className="container1">
       <div className="container2">
-        <div className="s1 f-color bold">Services</div>
+        <div className="s1 white bold">Services</div>
         <Searchbar1 className="searchbar1" handleSearch={handleSearch} />
       </div>
-      <div className="s2 f-color">Popular Services</div>
+      {
+        filteredServices.length > 0 ?(<><div className="s2 f-color">Popular Services</div>
 
-      <section>
-        <div className="s3 scrolling">
-          {filteredServices.map((service, key) => (
-            <Link href={`${service.url}`} key={key}>
-              <div className="as4">
-                <img src={service.imageUrl} className="asimg1" alt="img" />
-                <p className="as5 t-color">{service.title}</p>
-              </div>
-            </Link>
-          ))}
+        <section>
+          <div className="s3 scrolling">
+            {filteredServices.map((service, key) => (
+              <Link href={`${service.url}`} key={key}>
+                <div className="as4">
+                  <img src={service.imageUrl} className="asimg1" alt="img" />
+                  <p className="as5 t-color">{service.title}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+  
+        <div className="container3">
+          <div className="container2">
+            <div className="s1 white">All Services</div>
+          </div>
+          <div className="s2 f-color">Booking</div>
+          <section>
+            <div className="s3 scrolling">
+              {filteredServices.map((service, key) => (
+                <div key={key} className="as4">
+                  <img src={service.imageUrl} className="asimg1" alt="img" />
+                  <p className="as5 t-color">{service.title}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+  
+          <div className="s2 f-color">Experience</div>
+          <section>
+            <div className="s3 scrolling">
+              {filteredServices.map((service, key) => (
+                <div key={key} className="as4">
+                  <img src={service.imageUrl} className="asimg1" alt="img" />
+                  <p className="as5 t-color">{service.title}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+  
+          <div className="s2 f-color">Transportation</div>
+          <section>
+            <div className="s3 scrolling">
+              {filteredServices.map((service, key) => (
+                <div key={key} className="as4">
+                  <img src={service.imageUrl} className="asimg1" alt="img" />
+                  <p className="as5 t-color">{service.title}</p>
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
-      </section>
-
-      <div className="container3">
-        <div className="container2">
-          <div className="s1 f-color">All Services</div>
-        </div>
-        <div className="s2 f-color">Booking</div>
-        <section>
-          <div className="s3 scrolling">
-            {filteredServices.map((service, key) => (
-              <div key={key} className="as4">
-                <img src={service.imageUrl} className="asimg1" alt="img" />
-                <p className="as5 t-color">{service.title}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <div className="s2 f-color">Experience</div>
-        <section>
-          <div className="s3 scrolling">
-            {filteredServices.map((service, key) => (
-              <div key={key} className="as4">
-                <img src={service.imageUrl} className="asimg1" alt="img" />
-                <p className="as5 t-color">{service.title}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <div className="s2 f-color">Transportation</div>
-        <section>
-          <div className="s3 scrolling">
-            {filteredServices.map((service, key) => (
-              <div key={key} className="as4">
-                <img src={service.imageUrl} className="asimg1" alt="img" />
-                <p className="as5 t-color">{service.title}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-      </div>
+        </>):(<div className="not-found f-color bold">Service Not Found</div>)
+      }
+      
     </div>
   );
 };

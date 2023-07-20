@@ -55,6 +55,14 @@
   margin-top: 1rem;
 }
 
+.not-found{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10rem;
+  font-size: xx-large;
+}
+
 @media (max-width: 992px) {
 
   .container1{
