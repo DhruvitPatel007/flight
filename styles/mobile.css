@@ -368,10 +368,10 @@
   }
 
   .f44 {
-    width: 100vw;
     background-color: rgb(242, 242, 242);
   }
   .f5 {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: space-between;
@@ -409,6 +409,7 @@
   }
 
   .sbcontainer {
-    width: 100vw;
+    overflow: hidden;
+    width: auto;
   }
 }
